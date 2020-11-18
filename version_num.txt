@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="US-ASCII" ?>
+<RGW>
+<firmware_version>REL_MRVL_FX PR2</firmware_version>
+</RGW>

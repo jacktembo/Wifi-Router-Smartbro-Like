@@ -1,0 +1,117 @@
+<a href='#' class='help' onclick="getHelp()">&nbsp;</a>
+<div>
+    <div class="title_row">
+        <span id="h1UserSettings"></span>
+        <span id="h1InternetConnection"></span>
+        <span id="h1WirelessSeetings"></span>
+        <span id="h1DevicePlaceGuid"></span><br class="clear" />
+
+    </div>
+    <div id="MBQuickSetupMainPage" style="display: none">
+        <div class="content contQS">
+		 <div class="formBox" style="padding: 10px 0 2px 0">
+                <h1 id="lUserSettings1"></h1>
+                 <span class="subhdng" id="h1UserSettingsHeader"></span>
+            </div>
+            <label id='lUsername'></label>
+            <input type='text' name='router_username'  maxlength="12" value='' id='tbrouter_username' class='textfield' />
+
+            <label id='lPassword'></label>
+            <input type='password' value='' id='tbrouter_password' maxlength="12" onchange='passwordChanged()' onkeypress='passwordChanged()' class='textfield' />
+
+            <label id='lRePassword'  style='display: none'></label>
+            <input type='password' value='' id='tbreenter_password' maxlength="12" style='display: none'  class='textfield'/>
+
+
+
+            <div class="formBox">&nbsp;</div>
+            <div align="right">
+                <a id="btnExit" onClick="btnExitClicked('MBQuickSetupMainPage')" class="exit">Exit Setup</a>
+
+                <span class="btnWrp"> <input id="btnNext" type="button"  value="Next" onClick="btnQSNextClicked()" /></span>
+
+            </div>
+
+            <div align='center' class="">
+                <label class='error' id='lPassErrorMes'  style='display: none'></label>
+            </div>
+        </div>
+    </div>
+    <div id="MBQuickSetupPage1" style="display: none">
+        <div class="content contQS">
+            <br style="clear: both" />
+            <div class="formBox" style="padding: 10px 0 2px 0">
+                <h1 id="lInterConnQS"></h1>
+            </div>
+            <div id="divInternetConnectSet">
+            </div>
+            <div class="formBox">
+                &nbsp;</div>
+            <div align="right">
+                <a id="btnExit1" onclick="btnExitClicked('MBQuickSetupPage1')" class="exit">Exit Setup</a>
+                <span class="btnWrp">
+                    <input id="btnBack1" type="button" value="Back" onclick="btnBackClicked1()" /></span>
+                <span class="btnWrp">
+                    <input id="btnNext1" type="button" value="Next" onclick="btnQSNextClicked1()" /></span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="MBQuickSetupPage2" style="display: none" >
+        <div class="content contQS">
+           <br style="clear:both" />
+            <div class="formBox" style="padding: 10px 0 2px 0">
+                <h1 id="lPrimaryQS"></h1>
+            </div> 
+             <div id="divPrimaryNetworkSet">
+            </div>
+            <div class="formBox">
+                &nbsp;</div>
+
+           <div align="right">
+                <a id="btnExit3" onClick="btnExitClicked('MBQuickSetupPage2')" class="exit">Exit Setup</a>
+                <span class="btnWrp"><input id="btnBack3" type="button"  value="Back" onClick="btnBackClicked2()" /></span>
+                <span class="btnWrp"> <input id="btnNext3" type="button"  value="Next" onClick="btnQSNextClicked2()" /></span>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="MBQuickSetupPage3" style="display: none" >
+        <div class="content contQS">
+
+            <div class="formBox" style="padding: 10px 0 2px 0">
+                <h1 id="lDeviceGuideQS"></h1>
+            </div>
+            <label id="lDevicePlaceGuidText" style="display: block"></label>
+
+            <div class="devices">
+                <img src="images/Micro.gif" alt="" /> <label id="Microwave"></label>
+            </div><div class="devices">
+                <img src="images/BlueTooth.gif" alt="" /> <label id="Bluetooth_Devices"></label>
+            </div><br class="clear" />
+            <div class="devices">
+                <img src="images/WalkyTalky.gif" alt="" /><label id="Cordless_Phone"></label>
+            </div><div class="devices">
+                <img src="images/Dect.gif" alt="" /><label id="ownDevices"> </label>
+            </div><br class="clear" />
+            <div class="devices">
+                <img src="images/BabyMonitor.gif" alt="" /> <label id="Baby_Monitor">  </label>
+            </div>
+            <br class="clear" /><br class="clear" /><div class="formBox">&nbsp;</div>
+            <div align="right">
+
+
+                <span class="btnWrp"><input id="btnBack4" type="button"  value="Back" onClick="btnBackClicked3()" /></span>
+                <span class="btnWrp"><input id="btnFinish" type="button"  value="Finish" onClick="btnFinishClicked('MBQuickSetupPage3')" /></span>
+
+            </div>
+        </div>
+    </div>
+    <br class="clear" /><br class="clear clearCrm" /><br class="clear clearCrm" />
+</div>

@@ -1,0 +1,110 @@
+<a href='#' class='help' onclick="getHelp('CustomFirewallRules')">&nbsp;</a>
+
+    <label id="title" class="title"></label>
+    <div  id="divCustomFWPage">
+    
+        <label id="lCustomFWRulesText" class="subttl">
+
+        </label>
+        <BR />
+        <div id = "divChangeFWMode" style="display: none">
+        <div  id='IPFilterModeDiv'>
+  	       <label id='lIPFilterMode'></label>
+   	       <div id='rdRadioIPFilterMode'  class="inlineDiv"> </div>
+   	 	</div>
+   		<div align='right' class="formBox"><span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='setData()' /></span></div>
+        <br style="clear:both" />
+    </div>
+        <div align="right"><span class="btnWrp"><input id="btnAddRule" type="button" value="Add Rule" onclick="addCustomFWRule()" /></span> </div>
+        <table width="100%" id="tableCustomFW" class="dataTbl10 example table-stripeclass:alternate" style="margin-top: 5px">
+            <thead>
+                <tr>
+                    <th width="24%" id="ltRuleName"></th>
+                    <th width="10%" id="ltEnabled"></th>
+                    <th width="15%" id="ltSrcIP"></th>
+                    <th width="10%" id="ltSrcPort"></th>
+                    <th width="15%" id="ltDstIP"></th>
+                    <th width="10%" id="ltDstPort"></th>
+                    <th width="10%" id="ltProtocol"> </th>
+                    <th class="close">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="MBCustomFW" style="display: none" >
+        <div class="popUpBox popUpBox2"  >
+            <h1 id="h1CustomFWRule"></h1>
+	    <a href="#" class="close" onclick="btnCancelClickedCustomFW()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+            <div class="pBoxCont" >
+                <br style="clear:both" />
+                <label id="lRuleName_fw"></label>
+                <input name="" type="text" size="30" id="txtRulename" maxlength="25" onclick="txtRulenameClicked()"/>
+
+                <br style="clear:both" />
+                <label id="lStatus_fw"></label>
+		<div id="rbRuleEnable" class="inlineDiv"></div>
+
+		<br style="clear:both" />
+                <label id="lSrcIP"></label>
+                <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress1" class="sml" onkeyup='setFocusID("txtSrcIPAddress1","txtSrcIPAddress2")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress2" class="sml" onkeyup='setFocusID("txtSrcIPAddress2","txtSrcIPAddress3")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress3" class="sml" onkeyup='setFocusID("txtSrcIPAddress3","txtSrcIPAddress4")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress4" class="sml" onkeyup='setFocusID("txtSrcIPAddress4","txtSrcIPNetMask")'/> <strong>/</strong>
+		<input name="input" type="text" maxlength="3" size="3" id="txtSrcIPNetMask" class="sml">
+
+		<br style="clear:both" />
+
+		<br style="clear:both" />
+                <label id="lSrcPort"></label>
+                <input name="input" type="text" size="10" id="txtSrcPortRange1" class="mid" maxlength="5" />
+                <input name="input" type="text" size="10" style="margin-left:12px" id="txtSrcPortRange2" class="mid" maxlength="5" />
+
+ 		<br style="clear:both" />
+                <label id="lDstIP"></label>
+                <input name="input" type="text" maxlength="3" size="3" id="txtDstIPAddress1" class="sml" onkeyup='setFocusID("txtDstIPAddress1","txtDstIPAddress2")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtDstIPAddress2" class="sml" onkeyup='setFocusID("txtDstIPAddress2","txtDstIPAddress3")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtDstIPAddress3" class="sml" onkeyup='setFocusID("txtDstIPAddress3","txtDstIPAddress4")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtDstIPAddress4" class="sml" onkeyup='setFocusID("txtDstIPAddress4","txtDstIPNetMask")'/> <strong>/</strong>
+		<input name="input" type="text" maxlength="3" size="3" id="txtDstIPNetMask" class="sml">
+
+		<br style="clear:both" />
+                <label id="lDstPort"></label>
+                <input name="input" type="text" size="10" id="txtDstPortRange1" class="mid" maxlength="5" />
+                <input name="input" type="text" size="10" style="margin-left:12px" id="txtDstPortRange2" class="mid" maxlength="5" />
+
+		<label id="lProtocol"></label>
+                <select id="fwdSelect">
+                    <option value="TCP">TCP</option>
+                    <option value="UDP">UDP</option>
+                    <option value="BOTH">BOTH</option>
+                </select> <br style="clear:both" />
+                <br style="clear:both" />
+                <label id="lCustomFWError" class="lable13" style="display: none"></label>
+
+                <div class="buttonRow1">
+                    <a href="#." id="btnCancel"  onclick="btnCancelClickedCustomFW()" class="cancel">Cancel</a>
+                    <span class="btnWrp"><input id="btnOk" type="button"  value="OK" onclick="btnOKClickedCustomFW()" /></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="MBAlertCustomFW" style="display: none">
+        <div class="popUpBox popUpBox2">
+           <h1 id="lproductName"></h1>
+
+	    <a href="#" class="close" onclick="btnAlertOkClicked()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+
+            <div class="pBoxCont" >
+                <label id="lAlertError" class="lable12"></label>
+                <br style="clear:both" />
+                <div class="buttonRow1">
+                    <span class="btnWrp"><input id="btnTriggerOk" type="button"  value="OK" onclick="btnAlertOkClicked()" /></span>
+
+                </div>
+            </div>
+        </div>
+    </div>

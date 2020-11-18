@@ -1,0 +1,123 @@
+<a href='#' class='help' onclick="getHelp('DHCPSettings')">&nbsp;</a>
+   <label id="title" class="title"></label>
+    <!--<label id='lDhcpSettings'>DHCP Settings</label><br /><br /><br />-->
+
+
+    <div>
+        <label id='lDhcpRange'></label>
+        <select id='drpdwn_DHCP_range' class='combo1' onchange='drpdwn_DHCP_rangeChanged()'>
+            <option value='192.168.' selected>192.168</option>
+            <option value='10.0.' >10.0</option>
+            <option value='172.16.' >172.16</option>
+        </select>
+        <strong class='dot'>&middot;</strong>
+        <input type='text' id='textbox3'maxlength='3' class='textfield1' onchange='drpdwn_DHCP_rangeChanged()'/> <strong class='dot'>&middot;</strong>
+        <strong class='dot'>X</strong>
+        <br class="clear" />
+	<label id='lDevLanIP'></label><label id='ip' class="subttl"></label>
+    </div>
+
+    <div class="formBox">
+        <label id='lDhcpServer'></label>
+        <div id='rdRadio' class="inlineDiv"> </div>             
+        <div id="divEnabledDisabledContent">
+        <label id='lDhcpStartAdd'></label><br class="clear clearCrm" />
+        <div id='ipControl_start'> </div><br class="clear " />
+        <label id='lDhcpEndAdd'></label><br class="clear clearCrm" />
+        <div id='ipControl_end'> </div><br class="clear" />
+        <label id='ldhcplt'> </label><br class="clear clearCrm" />
+	<input type="text"  id='tbdhcplt' maxlength='10' class="textfield2" />  <strong id='sTimeUint'>(in Seconds)</strong><br style="clear: both" />
+
+	 <div id='divDNSEnableSwitch'>
+    <label  id="DNSEnableSwitchLabel"></label>
+    <select id='DNSEnableSwitchSel' onchange='DNSEnableSwitchChanged()'>
+        <option id='ClosedivDNSEnableSwitch' value='0'>Disabled</option>
+	    <option id='OpendivDNSEnableSwitch' value='1'>Enabled</option>
+    </select>
+    </div>
+	<label id='lDnsName1'> </label><br class="clear clearCrm" />
+	<input type="text"  id='txtDnsName1' class="textfield2" style="width:200px;"/>   <br style="clear: both" />
+	<label id='lDnsName2'> </label><br class="clear clearCrm" />
+	<input type="text"  id='txtDnsName2' class="textfield2" style="width:200px;"/>   <br style="clear: both" />
+
+    	<label id="lt_dhcp_stcRedirectionFunction">redirection function</label>
+    	<input type="radio" name="RedirectionURL" id="RedirectionURLEnabled" onchange="RedirectionURLEnabledChange()"  onClick="this.blur();"/><span id="lt_dhcp_stcRedirectionURLEnabled" style="margin-right:40px;"></span>
+    	<input type="radio" name="RedirectionURL" id="RedirectionURLDisabled" onchange="RedirectionURLDisabledChange()"  onClick="this.blur();"/><span id="lt_dhcp_stcRedirectionURLDisabled"></span>
+    	<div id="divEnabledDirectionUrl" style="display:none;">
+    	<label id="lt_dhcp_stRedirectionURL"> </label><br class="clear clearCrm" />
+	<input type="text"  id='txtDirectionURL' class="textfield2" style="width:200px;"/>  
+	</div>
+
+    </div>
+      <div align='center'>
+        <label class='error' id='lIPErrorMsg'  style='display: none'></label>
+    </div>
+  </div>
+
+ 
+
+<div id="divStaticIpAddrList" style="display:block;">
+<div style="float: right;margin-bottom:5px;"><span class="btnWrp"><input id="btnAddStaticIP" type="button"  value="Add Static IP" onclick="addStaticIP()" /></span>
+</div>
+        <label id="ltbStaticIP" ></label>
+        <table width="100%" id="tableStaticIP" border="0" cellspacing="0" cellpadding="0" class="dataTbl10 example table-stripeclass:alternate"  style="margin-top: 5px">
+            <thead>
+                <tr>
+                    <th width="49%" id="ltMacAddress"></th>
+                    <th width="49%" id="ltIPAddress"></th>
+                    <th class="close" width="2%">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+ </div>
+         <div id='divStaticIPFull' align='center' class="popUpBox popUpBox2" style='display: none'>
+         </div>
+
+ <br/>
+
+  <div>
+  <label id="DHCPV6title" class="title"></label>
+   <div>    
+        <label id="lDhcpV6Server"></label>    
+        <input type="radio" id="statelessServerRadio" name="DhcpV6ServerRadio"><span style="margin-right:40px;" id="lstatelessServer"></span>
+        <input type="radio" id="statefullServerRadio" name="DhcpV6ServerRadio"><span id="lstatefullServer"></span>
+        </div>
+  </div>
+
+<div id="MBStaticIPDlg" style="display: none" >
+	   <div class="popUpBox popUpBox2" style='width:500px' >
+            <h1 id="h1AddStaticIP"   style='width:450px;'></h1>
+	    <a href="#" class="close" onclick="btnCancelClickedStaticIP()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+
+            <div class="pBoxCont">
+              <label id="lStaticIP_MAC"></label>
+              <div class="boxCont2">  <input name="input" type="text" size="10" id="txtMac1" class="sml" maxlength="2" onkeyup='setFocus("txtMac1")'/> <strong>&middot;</strong>
+                <input name="input" type="text" size="10" id="txtMac2" class="sml" maxlength="2" onkeyup='setFocus("txtMac2")'/> <strong>&middot;</strong>
+                <input name="input" type="text" size="10" id="txtMac3" class="sml" maxlength="2" onkeyup='setFocus("txtMac3")'/> <strong>&middot;</strong>
+                <input name="input" type="text" size="10" id="txtMac4" class="sml" maxlength="2" onkeyup='setFocus("txtMac4")'/> <strong>&middot;</strong>
+                <input name="input" type="text" size="10" id="txtMac5" class="sml" maxlength="2" onkeyup='setFocus("txtMac5")'/> <strong>&middot;</strong>
+                <input name="input" type="text" size="10" id="txtMac6" class="sml" maxlength="2"/>
+                <br style="clear:both" /></div>
+
+                <label id="lStaticIP_IP"></label>
+                <div class="boxCont2"> <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress1" class="sml" onkeyup='setFocusID("txtSrcIPAddress1","txtSrcIPAddress2")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress2" class="sml" onkeyup='setFocusID("txtSrcIPAddress2","txtSrcIPAddress3")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress3" class="sml" onkeyup='setFocusID("txtSrcIPAddress3","txtSrcIPAddress4")'/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtSrcIPAddress4" class="sml"/>
+                 <br style="clear:both" /></div>
+	        <label id="lMacIpError" class="lable13" style="display: none"></label>
+		<div class="bottonRow1" style="border-top:1px solid #a7a7a7; padding:7px 0; margin:7px 0 0 0; text-align:right" >
+                    <a href="#." id="btnCancel" onclick="btnCancelStaticIPSetting()" class="cancel">Cancel</a>
+                    <span class="btnWrp"><input id="btnAdd_dhcp" type="button"  onclick="btnAddStaticIPSetting()" /></span>
+
+                </div>
+	      </div>
+	</div>
+     </div>
+  
+   <br style="clear:both" />
+    <div align='right'>
+        <span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='setData()' /></span>
+    </div>

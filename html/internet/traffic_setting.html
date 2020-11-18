@@ -1,0 +1,211 @@
+<label id="lt_trafficSet_stcTitle" class="title"></label>
+    <div>
+    <label id='lt_trafficSet_stcStaticMode'></label>
+    <select id="trafficSetingSel">
+        <option id='lt_trafficSet_stcDisabled' value='0'>Disabled</option>
+	    <option id='lt_trafficSet_stcMonth' value='1'>Per Month</option>
+	    <option id='lt_trafficSet_stcPeriod' value='2'>Per Period</option>
+	    <option id='lt_trafficSet_stcUnlimit' value='3'>Unlimit</option>
+    </select>
+    </div>
+    
+    <div id="divDisconnectNetwork" style="display:none;">
+    <label id='lt_trafficSet_stcDisconnectNetworkLabel'> Disconnect network when traffic arrived at the limit</label>
+    <select id="DisconnectActionSel">
+        <option id='lt_trafficSet_stcNoAction' value='0'>No Action</option>
+	    <option id='lt_trafficSet_stcDisconnect' value='1'>Disconnect</option>	   
+    </select>
+    </div>
+    
+   
+    
+    
+    <div id="DivMonthTrafficInfo" style="display:none;">
+    <div id="DivMonthUsedTraffic">
+    <label id='lt_trafficSet_stcMonthUsedTaffic'></label>
+    <input type="text" maxlength="10" id="txtMonthUsedTaffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="MonthUsedDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnCalMonthTraffic" value="Calibration" style="width:100px;height:22px;margin-left:20px;"/>
+    </div>
+    
+    <div id="DivMonthAvailableTraffic">
+    <label id='lt_trafficSet_stcMonthAvailableTraffic'></label>
+    <input type="text" maxlength="10" id="txtMonthAvailableTraffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="MonthAvalibleDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnChangeMonthAvalibleTraffic" value="Change" style="width:100px;height:22px;margin-left:20px;"/>
+    </div>
+    
+     <div id="DivMonthTotalTraffic">
+    <label id='lt_trafficSet_stcMonthTotalTaffic'></label>
+    <input type="text" maxlength="10" id="txtMonthTotalTaffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="MonthTotaldDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnChangeMonthTotalTraffic" value="Change"  style="width:100px;height:22px;margin-left:20px;"/>
+    </div>   
+    </div>
+    
+    
+    
+      <div id="DivUnlimitPeriodTrafficInfo" style="display:none;">
+    <div id="DivUnlimitPeriodUsedTraffic">
+    <label id='lt_trafficSet_stcUnlimitPeriodUsedTaffic'></label>
+    <input type="text" maxlength="10" id="txtUnlimitPeriodUsedTaffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="UnlimitPeriodUsedDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnCalUnlimitPeriodTraffic" value="Calibration" style="width:100px;height:22px;margin-left:20px;"/>
+    </div>
+    
+    <div id="DivUnlimitPeriodAvailableTraffic">
+    <label id='lt_trafficSet_stcUnlimitPeriodAvailableTraffic'></label>
+    <input type="text" maxlength="10" id="txtUnlimitPeriodAvailableTraffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="UnlimitPeriodAvalibleDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnChangeUnlimitPeriodAvalibleTraffic" value="Change" style="width:100px;height:22px;margin-left:20px;"/>
+    </div>
+    
+     <div id="DivUnlimitPeriodTotalTraffic">
+    <label id='lt_trafficSet_stcUnlimitPeriodTotalTaffic'></label>
+    <input type="text" maxlength="10" id="txtUnlimitPeriodTotalTaffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="UnlimitPeriodTotaldDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnChangeUnlimitPeriodTotalTraffic" value="Change"  style="width:100px;height:22px;margin-left:20px;"/>
+    </div>   
+    </div>
+    
+    
+    
+    <div id="DivPeriodTrafficInfo" style="display:none;">
+    
+    <div id="DivPeriodhUsedTraffic">
+    <label id='lt_trafficSet_stcPeriodUsedTaffic'></label>
+    <input type="text" maxlength="10" id="txtPeriodUsedTaffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="PeroidUsedDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnCalPeroidTraffic" value="Calibration"  style="width:100px;height:22px;margin-left:20px;"/>
+    </div>
+    
+       <div id="DivPeriodAvalibleTraffic">
+    <label id='lt_trafficSet_stcPeriodAvalibleTraffic'></label>
+    <input type="text" maxlength="10" id="txtPeriodAvalibleTraffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="PeroidAvalibleDataUnitSel" style="width:auto;disabled" >
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnChangePeroidAvalibleTraffic" value="Change" style="width:100px;height:22px;margin-left:20px;"/>
+    </div>
+    
+     <div id="DivPeroidTotalTraffic">
+    <label id='lt_trafficSet_stcPeriodTotalTaffic'></label>
+    <input type="text" maxlength="10" id="txtPeriodTotalTaffic" class='textfield1' style="width:100px;" readonly ="readonly"/>
+    <select id="PeroidTotaldDataUnitSel" style="width:auto;disabled">
+        <option value="1">KB</option>
+        <option value="2">MB</option>
+        <option value="3">GB</option> 
+    </select>
+   <input type="button" id="lt_trafficSet_btnChangePeroidTotalTraffic" value="Change"  style="width:100px;height:22px;margin-left:20px;"/>
+    </div>   
+    
+    <div id="divPeroidTime">
+    <label id='lt_trafficSet_stcPeriodTime'></label>
+    <input type='text' maxlength="4" value='' id='txtPeriodStartYear' class='textfield1' readonly ="readonly"/>
+     <strong class="dot"> / </strong>
+    <input type='text' maxlength="2" value='' id='txtPeriodStartMonth' class='textfield1' readonly ="readonly"/>
+     <strong class="dot"> / </strong>
+    <input type='text' maxlength="2" value='' id='txtPeriodStartDay' class='textfield1' readonly ="readonly"/>
+     <strong class="dot"> -- </strong>
+     <input type='text' maxlength="4" value='' id='txtPeriodEndYear' class='textfield1' readonly ="readonly"/>
+     <strong class="dot"> / </strong>
+    <input type='text' maxlength="2" value='' id='txtPeriodEndMonth' class='textfield1' readonly ="readonly"/>
+     <strong class="dot"> / </strong>
+    <input type='text' maxlength="2" value='' id='txtPeriodEndDay' class='textfield1' readonly ="readonly"/>
+    <input type="button" id="lt_trafficSet_btnChangePeroidTime" value="Change"  style="width:100px;height:22px;margin-left:20px;"/>
+    </div>  
+        
+    </div>
+    
+<!--<div align="right">
+    <span class="btnWrp">
+        <input id="lt_trafficSet_btnSave" onclick="setData()" type="button" value="±£´æ"></span>
+</div>-->
+    
+    
+<div id="divTrafficSetting" style="display: none">
+    <div class="popUpBox popUpBox2" style='width: 500px'>
+        <h1 id="lt_trafficSet_stcTrafficSettingTitle" style='width: 450px;'>
+        </h1>
+        <a href="#" class="close" onclick="hm()">
+            <img src="images/close-icon.gif" alt="" /></a><br style="clear: both" />
+        <div class="pBoxCont">
+            <label id='lt_trafficSet_stcTrafficSettingLabel' style="margin-left:40px;width:auto;">
+            </label>
+            <input type="text" maxlength="10" id="txtNewTrafficData" class='textfield1' style="width:100px;margin-left:10px;"/>
+            <select id="newTrafficSel" style="width:auto;height:23px;">  
+            	<option value="1">KB</option>
+                <option value="2">MB</option>
+                <option value="3">GB</option>
+            </select>
+        </div>
+        <div class="bottonRow1" style="border-top: 1px solid #a7a7a7; padding: 7px 0; margin: 7px 0 0 0;
+            text-align: right">
+            <a href="#." onclick="hm()" id="lt_trafficSet_stcCancel" class="cancel">Cancel</a> <span class="btnWrp">
+                <input id="lt_trafficSet_btnNewTraffic" type="button" /></span>
+        </div>
+    </div>
+</div>
+
+
+<div id="divPeriodTimeSetting" style="display: none">
+    <div class="popUpBox popUpBox2" style='width: 500px'>
+        <h1 id="lt_trafficSet_stcPeriodTimeSetting" style='width: 450px;'>
+        </h1>
+        <a href="#" class="close" onclick="hm()">
+            <img src="images/close-icon.gif" alt="" /></a><br style="clear: both" />
+        <div class="pBoxCont">
+            <label id='lt_trafficSet_stcPeriodStartTime'  style="margin-left:20px;width:auto;">
+            </label>
+            <input type='text' maxlength="4" value='' id='txtNewPeriodStartYear' class='textfield1' style="margin-left:5px;width:40px;" />
+            <strong style="font-size:14px; color:#333;">/ </strong>
+            <input type='text' maxlength="2" value='' id='txtNewPeriodStartMonth' class='textfield1' style="width:40px;" />
+            <strong style="font-size:14px; color:#333;">/ </strong>
+            <input type='text' maxlength="2" value='' id='txtNewPeriodStartDay' class='textfield1' style="width:40px;"/>
+        <!--     <strong style="font-size:14px; color:#333;">--</strong>-->
+        </br>
+            <label id='lt_trafficSet_stcPeriodEndTime'  style="margin-left:20px;width:auto;">
+            </label>
+            <input type='text' maxlength="4" value='' id='txtNewPeriodEndYear' class='textfield1' style="margin-left:5px;width:40px;"/>
+            <strong style="font-size:14px; color:#333;">/ </strong>
+            <input type='text' maxlength="2" value='' id='txtNewPeriodEndMonth' class='textfield1' style="width:40px;"/>
+           <strong style="font-size:14px; color:#333;">/ </strong>
+            <input type='text' maxlength="2" value='' id='txtNewPeriodEndDay' class='textfield1' style="width:40px;"/>
+        </div>        
+        <label id="lErrorLogs" class="lable13" style="display:none;margin-left:30px;"></label>
+        <div class="bottonRow1" style="border-top: 1px solid #a7a7a7; padding: 7px 0; margin: 5px 0 0 0;text-align: right">
+            <a href="#." id="lt_trafficSet_stcCancel" onclick="hm()" id="lt_trafficSet_stcCancel" class="cancel">Cancel</a> <span class="btnWrp">
+                <input id="lt_trafficSet_btnNewPeroidTime" type="button" /></span>
+        </div>
+    </div>
+</div>

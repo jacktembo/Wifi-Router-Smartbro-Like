@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from 192.168.1.1/help_en.html?name= by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Jul 2020 01:28:25 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Smart LTE</title>
+<link href="css/stylesheet.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/base/utils.js" language="javascript"></script>
+<script>
+    function helpOnLoad(){
+        var version = getValue("version");
+        var name = getValue("name");
+
+        if(version.indexOf("#")>-1)
+            version = version.substring(0,version.indexOf("#"));
+
+
+        document.getElementById("lVersionString").innerHTML = name + " " + version;
+
+        if (getCookie("platform") == "dongle") {      
+                document.getElementById("dWirelessHelpContent").style.display = "none";
+                document.getElementById("lWirelessHelpNavigation").style.display = "none";            
+        }   
+        
+
+
+    }
+function getValue(varname)
+{
+  // First, we load the URL into a variable
+  var url = window.location.href;
+
+  // Next, split the url by the ?
+  var qparts = url.split("?");
+
+  // Check that there is a querystring, return "" if not
+  if (qparts.length == 0)
+  {
+    return "";
+  }
+
+  // Then find the querystring, everything after the ?
+  var query = qparts[1];
+
+  // Split the query string into variables (separates by &s)
+  var vars = query.split("&");
+
+  // Initialize the value with "" as default
+  var value = "";
+
+  // Iterate through vars, checking each one for varname
+  for (i=0;i<vars.length;i++)
+  {
+    // Split the variable by =, which splits name and value
+    var parts = vars[i].split("=");
+
+    // Check if the correct variable
+    if (parts[0] == varname)
+    {
+      // Load value into variable
+      value = parts[1];
+
+      // End the loop
+      break;
+    }
+  }
+
+  // Convert escape code
+  value = unescape(value);
+
+  // Convert "+"s to " "s
+  value.replace(/\+/g," ");
+
+  // Return the value
+  return value;
+}
+</script>
+</head>
+
+    <body class="helpBody" onload="helpOnLoad()"> <a name="top"></a>
+
+
+        <div class="header" id="header">
+    <div class="logo"><img src="images/logo.png" alt="Smart LTE" title="Smart LTE" /></div>
+    <br class="clear" />
+    <div class="navigation" id="navigation">
+        <ul><li class="helpTitle">Smart LTE Wireless Router Help</li></ul><div class="date">&nbsp;</div>
+    </div>
+    </div>
+
+
+
+	<div class="mainColumn">
+    <div class="content">
+ 				 <ul class="helpList">
+       	<li><a href="#QuickSetup">Quick Setup</a></li>
+        <li>Internet
+<ul>
+                        <li><a href="#InternetConnection">Internet Connection</a></li>
+				          <li><a href="#TrafficStatistics">Traffic Statistics</a></li>
+				          <li><a href="#PinPuk">PIN Management</a></li>
+				          <li><a href="#ManualNetwork">Manual Network</a></li>
+                        </ul>
+        </li>
+                  <li>Home Network
+           	      <ul>
+                       	<li><a href="#DHCPSettings">DHCP Settings</a></li>
+                    <li><a href="#ConnectedDevices">Connected Devices</a></li>
+                    <li><a href="#NetworkActivity">Network Activity</a></li>
+                    <li><a href="#CustomFirewallRules">Custom FireWall Rules</a></li>
+                    <li><a href="#Message">Message</a></li>
+                    </ul>
+                    </li>
+                  <li id="lWirelessHelpNavigation" style="display:block">Wireless
+           	      <ul>
+                       	<li><a href="#WirelessSettings">Wireless Settings</a></li>
+                    <li><a href="#WirelessSecuritySettings">Wireless Security Settings</a></li>
+
+                    <li><a href="#WirelessMACFilters">Wireless MAC Filters</a></li>
+                    </ul>
+                    </li>
+                  <li>Router
+           	      <ul>
+                       	<li><a href="#UserManagement">User Management</a></li>
+                            <li><a href="#ConfigurationManagement">Configuration Management</a></li>
+                            <li><a href="#SoftwareUpgrade">Software Upgrade</a></li>
+                            <li><a href="#RebootRouter">Reboot Router</a></li>
+                            <li><a href="#TimeSetting">Time Setting</a></li>
+                        </ul>
+                    </li>
+      </ul>
+                 <br class="clear" />
+   <a name="QuickSetup"></a>
+ <h2>Quick Setup</h2>
+
+
+<p> The Smart LTE router Quick Setup tab is designed to assist you in connecting your new Smart LTE router to the Internet. This Quick Setup procedure guides you through step-by-step instructions on how to get an Internet connection up and running.</p>
+<strong>Screen 1 - User Management</strong>
+<p> Via this screen you can change the router's Username and Password. <br />
+  The default values for username and password are 'smartbro' and 'smartbro' <br />
+</p>
+<strong>Screen 2 - Internet Connection Setup</strong>
+<p>The Internet Connection screen allows the user to Configures the Internet connection type.</p>
+<p>The main Internet connection types are as follows:</p>
+<ul>
+  <li>Disable - <em>No Internet connection. Only the wireless Home Network is active.</em></li>
+  <li>Cellular - This is the default mode of connectivity. You can insert your SIM into the router and the wireless clients associated can make use of it for internet connectivity! Also note that in this mode, the ethernet port can be used for connecting any LAN side clients. For 3G USBModem, there are a bunch of ISP's that we support - you can select one of them from a dropdown list. Also you can update the router's ISP database by uploading your local ISP settings file.</li>
+</ul>
+<strong>Screen 3 - Wireless Setup - Wireless Network Settings</strong>
+<p>The Wireless Connection Setup screen contains the Wireless Network Information (WLAN) section which describes the wireless connection status. The user can configure wireless settings and security parameters.</p>
+<ul>
+  <li> Wireless Network Name (SSID) -- User defined name for the wireless network.</li>
+  <li>Wireless Network Password -- User defined password for the wireless network.</li>
+  <li>Verify Password -- Makes sure that entered password value is the intended one by comparing this entry with the one above.</li>
+  <li>WPA / WPA2 (most secure) -- Provides maximum level of security. Devices that support WPA or WPA2 will be able to join this network. You must enter a password between 8 and 63 characters.</li>
+  <li>WEP (less secure) -- Provides security that is compatible with older devices. You must enter a password of exactly 5 or 13 characters.</li>
+  <li>No Security (not recommended) -- Any wireless device can connect your network without entering a password.</li>
+</ul>
+
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+   <a name="InternetConnection"></a>
+ <h2>Internet Connection</h2>
+<p>The Internet Connection screen is used to configure the Smart LTE router Internet Connection type. There are 2 connection types to choose from: Disabled, Cellular. Please verify your Internet connection type with your Internet Service Provider.</p>
+<strong>Internet Connection Setup</strong>
+<p>The Internet Connection Setup section contains the following fields:</p>
+My Internet Connection is -
+<ul>
+  <li>Disable - <em>No Internet connection. Only the wireless Home Network is active.</em></li>
+  <li>Cellular - This is the default mode of connectivity. You can insert your SIM into the router and the wireless clients associated can make use of it for internet connectivity! Also note that in this mode, the ethernet port can be used for connecting any LAN side clients. For 3G USBModem, there are a bunch of ISP's that we support - you can select one of them from a dropdown list. Also you can update the router's ISP database by uploading your local ISP settings file.</li>
+</ul>
+Network Mode -
+<ul>
+<li>4G/3G/2G multimode - All the network mode is enabled </li>
+<li>4G only - Only 4G is enabled</li>
+<li>4G/3G only -  Only 4G and 3G is enabled</li>
+<li>3G/2G only -  Only 3G and 2G is enabled</li>
+<li>Disable NW settings - All the network is disabled</li>
+</ul>
+Preferred Network Mode -
+<ul>
+<li>4G Preferred - The device will attach to 4G network as prefer </li>
+<li>3G/2G Preferred - The device will attach to 3G/2G network as prefer</li>
+</ul>
+Selected Profile -
+<ul>
+<li>These Profiles will be displayed below with Profile Name, APN Name and Connection Mode,and you can also add new Profile which will be displayed on drop-down menu of Selected Profile.</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="TrafficStatistics"></a>
+<h2>Traffic Statistics</h2>
+ <p><strong>Traffic Statistic Screen</strong></p>
+
+<p>The Traffic Statistics Screen displays the received and the transmitted packet statistics for packets that are sent via the Smart LTE router.</p>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="PinPuk"></a>
+<h2>PIN Management</h2>
+ <p><strong>PIN Management Screen</strong></p>
+
+<p>Enable or disable PIN, and change PIN.</p>
+<p>ThePIN Management Screen contains the following fields:</p>
+<ul>
+<li>PIN/PUK Attempts - display the number of PIN attempts and PUK attempts.The default number of PIN attempts is 3, and PUK attempts is 10; if PIN attempts larger than 3, it will require PUK to unlock the SIM card, and if PUK attempts larger than 10, the SIM card will be abandoned
+When you input PIN code to enable or disable PIN, if input wrong PIN code, the number of PIN attempts will decrease by 1, same as PUK
+</li>
+<li>
+Enable/Disable PIN - Enable PIN:Input correct PIN code and press the right button, PIN will be enabled successfully, and the right button will display as "Disable PIN".
+Disable PIN:Input correct PIN code and press the right button "Disable PIN", PIN will be disabled successfully, and the right button will display as "Enable PIN".
+</li>
+<li>
+Change PIN - Enter current PIN, then Enter New PIN and press "Save" button, the PIN will be changed.
+</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="ManualNetwork"></a>
+<h2>Manual Network</h2>
+ <p><strong>Manual Network Screen</strong></p>
+
+<p>The Manual Network Screen displays the function of manually scan network operators and configure the selectable network operator</p>
+<p>The Manual Network Screen contains the following fields:</p>
+<ul>
+<li>
+Manual Scan Network button - Click the button will Trigger router to scan network operators. The scan results will be displayed on drop-down menu of "Selectable Network".
+</li>
+<li>
+Selectable Network - Then network operators will be displayed after click the Manual Scan Network button, choose one network operator and save, the router will connect to the selected network if no error happens.
+</li>
+<li>
+Manually select network when system start - choose the option "I want to manually select network when system start", the network should be selected manually when system start.
+</li>
+<li>
+LTE background scan network time - On drop-down menu, you can choose the Interval time and save. Then the Interval time to LTE background scanning will be configure to router.
+</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="DHCPSettings"></a>
+<h2>DHCP Settings</h2>
+
+<p>The Home Network screen displays the DHCP settings and allows users to define IP Addresses range to be assigned to the network devices. The DHCP assigns dynamic IP addresses to devices on a network. DHCP ensures that network devices can have a different IP address every time the device connects to the network. The Home Network screen is used to configure the built-in DHCP Server to assign IP addresses to the computers and other devices on the user's LAN.</p>
+
+<strong>DHCP Settings</strong>
+
+<p>The DHCP Settings section contains the following fields:</p>
+<ul>
+  <li>DHCP Range -- Selects the basic IP address range, in which the start and the end DHCP IP addresses range are assigned.</li>
+  <li> Start DHCP Address and End DHCP Address -- Defines a range of addresses that the DHCP Server uses when assigning addresses to computers and devices on your Local Area Network. Any addresses that are outside this range are not managed by the DHCP Server; these could, therefore, be used for manually configured devices or devices that cannot use DHCP to obtain network address details automatically.</li>
+</ul>
+
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+
+<a name="ConnectedDevices"></a>
+<h2>Connected Devices</h2>
+
+<p>The Connected Devices screen displays a list of devices that are connected to the network. The Connected Devices screen also allows the user to block access to the Internet to a specific device.</p>
+<p>The Connection Devices screen contains the following fields:</p>
+<ul>
+  <li>Connected Devices</li>
+  <li>Name - Device name</li>
+  <li> IP Address - Device IP address</li>
+  <li>MAC Address - Device MAC address</li>
+  <li>Connection - Device connection type</li>
+  <li>Block Internet - When checked, blocks specific device Internet access</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="NetworkActivity"></a>
+<h2>Network Activity</h2>
+ <p>The Network Activity screen displays a list of dialer logs and WIFI client connect and disconnect log.</p>
+<p>The Network Activity screen contains the following fields:</p>
+<ul>
+<li>
+Access logs - The table shows 30 most recently dialer entries with router IP,connect time and disconnect time.
+</li>
+<li>
+WIFI Client Access log - The table shows 30 most recently WIFI client connect and disconnect entries with client MAC address, connect time or disconnect time.
+</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="CustomFirewallRules"></a>
+<h2>Custom FireWall Rules</h2>
+<p>Custom Firewall Rules can be used to block the network traffic the using source IP address, source ports, destination IP address, destination ports or any combination of these parameters.</p>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+ <a name="Message"></a>
+<h2>Message</h2>
+ <p>The Message screen displays a list of received SMS.</p>
+
+ <div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+<div id="dWirelessHelpContent" style="display:block">
+<a name="WirelessSettings"></a>
+<h2>Wireless Settings</h2>
+
+<p>The Wireless screen allows you to configure the parameters needed for your wireless home network. A host of Security methods are also applicable for this wireless network. </p>
+    <strong>Settings</strong>
+<p>The Settings page contains following fields - </p>
+<ul>
+  <li><strong>802.11 Mode</strong> -- Currently we provide only 802.11b/g mode</li>
+  <li>802.11b/g -- Allows all 802.11b or g devices (in the 2.4 GHz) to connect to the home router. 802.11n and devices operating in the 5GHz range cannot connect.</li>
+  <li><strong>Channel</strong> -- Selects the 802.11 frequency that the home router uses. Allows the home router to select the optimal frequency to use given the radio environment in the vicinity of the home router. The 802.11 standard associates different channel ranges depending on if the home router is operating in the 2.4 or 5 GHz range. The Channel drop-down list reflects the available channel numbers for the selected 801.11 Mode.</li>
+  <li><strong>Channel Bandwidth</strong> -- Enable users to control the trade off between performance and interference with other WiFi users. Currently this option is not configurable. It is set to 20 MHz directly. </li>
+  <li><strong>Maximum Simultaneous Clients</strong> -- Enable users to control the maximum simultaneous clients connect to router.<li>
+  <li><strong>WIFI Auto OFF Time Setting</strong> -- Enable users to control the Interval time to make WIFI off automatically when no client connect to router.</li>
+  <li><strong>Primary Channel and Secondary Channel</strong> -- when WiFi use 40Mhz bandwidth, there are two channels(one is primary channel, the other is secondary channel.</li>
+  <li><strong>Band40 ACS Switch</strong> -- when LTE use band40, WiFi will use channel 6,7,8,9,10, this will avoid conflict with LTE band40.</li>
+  <li><strong>Beacon Period Setting</strong> -- set Wifi's beacon period.</li>
+  <li><strong>DTIM Interval Setting</strong> --  set wifi's DTIM interval.</li>
+</ul>
+
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+<a name="WirelessSecuritySettings"></a>
+<h2>Wireless Security Settings</h2>
+
+<p>The Wireless Security section allows users to define the network as well as the security parameters for the wireless home network as required. The factory default setting for security is WPA-WPA2 Mixed mode that allows only the WPA/WPA2 devices to associate with the home router.</p>
+<p>The Wireless Security section contains the following fields:</p>
+<ul>
+  <li><b>Network Name</b> -- Used to change the name of your wireless network. This name appears in windows, Macintosh, Linux or in other known networks.</li>
+  <li><b>Wireless security </b></li>
+  <li>Disabled -- No wireless security. All traffic may be read by others</li>
+  <li>WPA2-PSK -- The highest Level of Security. Passwords should be at least 8 characters and contain characters besides letters and numbers such as , #, @, % &amp; etc. Only devices that support WPA2-PSK may associate. WPA2 Cipher is AES.</li>
+  <li>WPA-PSK -- The highest Level of Security. Passwords should be at least 8 characters and contain characters besides letters and numbers such as , #, @, % &amp; etc. Only devices that support WPA-PSK may associate. WPA2 Cipher is AES.</li>
+  <li>WPA-WPA2 Mixed -- WPA2-PSK or WPA-PSK Security method depending on the device that needed to connect. Passwords should be at least 8 characters and contain characters besides letters and numbers such as , #, @, % &amp; etc. WPA2 Cipher is AES. WPA Cipher is TKIP/ AES.</li>
+  <li>WEP -- The WEP Security is used if the devices that use the home router do not support WPA or WPA2. WEP security is based on a fixed size password. Older devices only support 5 characters (40 bit) newer devices support 13 characters (104 bit). The 13 character security is better than 5 characters.</li>
+  <li>Password -- A User defined password. Passwords should be at least 8 characters and contain characters besides letters and numbers such as , #, @, % &amp; etc.</li>
+  <li>Verify Password -- Makes sure that entered password value is the intended one by comparing this entry with the one above. </li>
+  <li>WPA Cipher -- An encryption algorithm used to secure the data communication. Temporal Key Integrity Protocol (TKIP) provides per-packet key generation and is based on WEP. The Advanced Encryption Standard (AES) is another very secure encryption option. With the &quot;TKIP and AES&quot; option, the router negotiates the cipher type with the client, and uses AES when available.</li>
+  <li>Encryption (when using WEP mode) -- Defines the password characters number.</li>
+</ul>
+
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+<a name="WirelessMACFilters"></a>
+<h2>Wireless MAC Filters</h2>
+<p>The wireless MAC filters screen allows you to enable/disable MAC Filters. <br />Also you can delete multiple MAC filters selectively from 'Allow' or from 'Deny' list.</p>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+</div>
+
+<a name="UserManagement"></a>
+<h2>User Management</h2>
+
+<p>The Administration screen allows the user to set username and password to access the Smart LTE router Web Interface, to Save and/or Restore the router configuration and settings , to reset to factory settings and to enable Turbo mode for higher performance. &quot; </p>
+<strong>User Management</strong>
+<p> The User Management section contains the following fields:</p>
+<ul>
+  <li>Router Username -- Defines the Username used by the user to access the Smart LTE router Web Interface.</li>
+  <li> Router Password -- Defines the Password used by the user to access the Smart LTE router Web Interface.</li>
+  <li>Verify Password -- Makes sure that entered password value is the intended one by comparing this entry with the one above.</li>
+</ul>
+<p>By default the Logon settings are: </p>
+<ul>
+  <li>Router Username -- smartbro</li>
+  <li>Router Password -- smartbro</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="ConfigurationManagement"></a>
+<h2>Configuration Management</h2>
+ <p>
+<strong>Configuration Management</strong></p>
+<p>Restore Factory Settings - This option resets the router to the factory defaults. Please note that the existing settings will be lost.</p>
+
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="SoftwareUpgrade"></a>
+<h2>Software Upgrade</h2>
+
+<p>The SW Upgrade screen is used to check for latest firmware versions and to update Smart LTE router if a new version is available.</p>
+<strong>Software Information</strong>
+<p>The Software Information section provides information about currently used firmware version.</p>
+
+<strong>Software Upgrade</strong>
+<p> The Software Upgrade section is used to upload a firmware updated file when available on the user's computer.</p>
+<p>The Software Upgrade contains the following fields:</p>
+<ul>
+  <li>Select a file for manual upgrade -- Browses for the file which contains the desired firmware version.</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="RebootRouter"></a>
+<h2>Reboot Router</h2>
+<p>The Reboot Router screen displays the function of reset router</p>
+
+<a name="TimeSetting"></a>
+<h2>Time Setting</h2>
+
+ <p>The time setting screen displays options for configuring the router time.</p>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+
+<a name="WebDavManagement"></a>
+<h2>SD card Management</h2>
+
+<p>Management of SD card usage and network user name and password.</p>
+<strong>The Management of SD card</strong>
+<p> The Management of SD card contains the following fields:</p>
+<ul>
+  <li> SD card use mode setting -- Set the SD card access is through the network or USB connection .</li>
+  <li> SD card user management -- Set user name and password when using SD card via the network .</li>
+</ul>
+<p>the Default of User name and Password: </p>
+<ul>
+  <li>Username -- admin</li>
+  <li>Password -- admin</li>
+</ul>
+<div align="right"><a href="#top"><strong>&uarr; </strong> Top</a></div>
+    </div>
+    <br class="clear" />
+
+</div>
+        <div class="footerHelp">
+        <div class="footer">
+<div class="footerLft"></div>
+    <div class="footerMast">
+        <div>Copyright 2012, All Rights Reserved, Evoluzn Inc. USA</div>
+        <span class="logoTxt">E V O L U Z N</span>
+        <span class="footerTxt"><label id="lVersionString"> </label></span>
+    </div>
+    <div class="footerRgt"></div>
+        </div> <br class="clear" /></div>
+
+</body>
+
+<!-- Mirrored from 192.168.1.1/help_en.html?name= by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 Jul 2020 01:28:25 GMT -->
+</html>

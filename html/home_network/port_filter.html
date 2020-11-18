@@ -1,0 +1,85 @@
+<label id="lt_portFilter_stcTitle" class="title">
+</label>
+<div>
+<!--    <label id="lt_portFilter_stcHelpContent" class="subttl">
+    </label>
+    <br />-->
+    <div id='divPortFilterMode'>
+        <label id='lt_portFilter_stcMode'>
+        </label>
+        <input type="radio" name="portFilterMode" id="enabledPortFilter" /><span id="lt_portFilter_stcEnabledPortFilter"
+            style="margin-right: 40px;"></span>
+        <input type="radio" name="portFilterMode" id="disabledPortFilter" /><span id="lt_portFilter_stcDisabledPortFilter"></span>
+    </div>
+    <div align='right' class="formBox">
+        <span class="btnWrp">
+            <input type='button' id='lt_portFilter_stcSave' value='Save' onclick='setData()' /></span></div>
+    <br style="clear: both" />
+    <div align="right">
+        <span class="btnWrp">
+            <input id="lt_portFilter_btnAddPortFilterRules" type="button" value="Add Rule" onclick="addPortFilterRule()" /></span>
+    </div>
+    <table width="100%" id="tablePortFilter" class="dataTbl10 example table-stripeclass:alternate"
+        style="margin-top: 5px">
+        <thead>
+            <tr>
+                <th width="20%" id="lt_portFilter_stcRuleName">
+                </th>
+                <th width="20%" id="lt_portFilter_stcProtocol">
+                </th>
+                <th width="30%" id="lt_portFilter_stcTriggerPort">
+                </th>
+                <th width="30%" id="lt_portFilter_stcResponsePort">
+                </th>
+                <th class="close">
+                    &nbsp;
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<div id="MBPortFilter" style="display: none">
+    <div class="popUpBox popUpBox2">
+        <h1 id="lt_portFilter_stcPortFilterDlgTitle">
+        </h1>
+        <a href="#" class="close" onclick="hm()">
+            <img src="images/close-icon.gif" alt="" /></a><br style="clear: both" />
+        <div class="pBoxCont">
+            <br style="clear: both" />
+            <label id="lt_portFilter_stcRuleName">
+            </label>
+            <input type="text" size="30" id="txtRulename" maxlength="25" onclick="ClearVerifyError()"/>
+            <br style="clear: both" />
+            <label id="lt_portFilter_stcTriggerPort">
+            </label>
+            <input name="input" type="text" size="10" id="txtTriggerStartPort" class="mid" maxlength="5" onclick="ClearVerifyError()"/>
+            <input name="input" type="text" size="10" style="margin-left: 12px" id="txtTriggerEndPort"
+                class="mid" maxlength="5" onclick="ClearVerifyError()"/>
+            <br style="clear: both" />
+            <label id="lt_portFilter_stcResponsePort">
+            </label>
+            <input name="input" type="text" size="10" id="txtResponseStartPort" class="mid" maxlength="5" onclick="ClearVerifyError()"/>
+            <input name="input" type="text" size="10" style="margin-left: 12px" id="txtResponseEndPort"
+                class="mid" maxlength="5" onclick="ClearVerifyError()"/>
+            <br style="clear: both" />
+            <label id="lt_portFilter_stcProtocol">
+            </label>
+            <select id="PortFilterProtocolSel">
+                <option value="TCP">TCP</option>
+                <option value="UDP">UDP</option>
+                <option value="BOTH">BOTH</option>
+            </select>
+            <br style="clear: both" />
+            <br style="clear: both" />
+            <label id="lPortFilterError" class="lable13" style="display: none">
+            </label>
+            <div class="buttonRow1">
+                <a href="#." id="lt_portFilter_btnCancelAddRule" onclick="hm()" class="cancel">Cancel</a>
+                <span class="btnWrp">
+                    <input id="lt_portFilter_btnAddRule" type="button" value="OK" onclick="AddRule()" /></span>
+            </div>
+        </div>
+    </div>
+</div>

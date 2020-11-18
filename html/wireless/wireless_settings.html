@@ -1,0 +1,153 @@
+<a href='#' class='help' onclick="getHelp('WirelessSettings')">&nbsp;</a>
+  <label id="title" class="title"></label>
+    <label id='lWNS' class="title" style="display: none"></label>
+    <label id='lWN'></label>
+    <div id='rdRadioWN' onclick='EDWirelessNW()' class="inlineDiv"> </div>
+    <br />
+    <div id='basic_settings'>
+    <div id='rfband_div' stype="display:none">
+    <label id='lrfband' style="margin-top:6px"></label>
+    <select id="rfbanddrpdwn"  onchange="rfband_drpdwnChanged()">
+        <option id='dropdownband24G' value='1'>2.4GHz</option>
+		<option id='dropdownband50G' value='2'>5GHz</option>
+    </select>
+    </div>    
+    <div id='80211_mode_div' stype="display:none">
+    <label id='l80211_mode'></label>
+    <select id="Modedrpdwn"  onchange="drpdwn_modeChanged()">
+        <option id='dropdown80211n' value='0'>802.11n (b/g compatible)</option>
+		<option id='dropdown80211bg' value='1'>802.11 b/g</option>
+		<option id='dropdown80211b_only' value='2'>802.11 b only</option>
+		<option id='dropdown80211g_only' value='3'>802.11 g only</option>
+    </select>
+    </div>
+    <div id='80211_mode_5G_div' stype="display:none">
+    <label id='l80211_mode_50G'></label>
+    <select id="Modedrpdwn_50G"  onchange="drpdwn_modeChanged_50G()">
+        <option id='dropdown80211an' value='0'>802.11 a/n</option>
+		<option id='dropdown80211a' value='1'>802.11 a</option>
+    </select>
+    </div>
+    <span style="color:red;display:none;" id="WifiModeInvalideTip">probihit set 802.11n mode in MEP mode.</span>
+
+    <label id='lBandwidth'></label>
+    <select id='Bandwidthdrpdwn' onchange="drpdwn_bandwidthChanged()">
+        <option id='dropdownBWAuto' value='0'>Automatic (20/40 MHz)</option>
+        <option id='dropdownBW20' value='1'>20 MHz</option>
+        <option id='dropdownBW40' value='2'>40 MHz</option>
+    </select>
+    
+    <label id='lChannel'></label>
+    <select id='Channeldrpdwn' stype="display:none">
+        <option id='dropdownWirelessAuto' value='0'>Automatic</option>
+        <option id='dropdownCH1' value='1'>CH 1 - 2412 Mhz</option>
+        <option id='dropdownCH2' value='2'>CH 2 - 2417 Mhz</option>
+        <option id='dropdownCH3' value='3'>CH 3 - 2422 Mhz</option>
+        <option id='dropdownCH4' value='4'>CH 4 - 2427 Mhz</option>
+        <option id='dropdownCH5' value='5'>CH 5 - 2432 Mhz</option>
+        <option id='dropdownCH6' value='6'>CH 6 - 2437 Mhz</option>
+        <option id='dropdownCH7' value='7'>CH 7 - 2442 Mhz</option>
+        <option id='dropdownCH8' value='8'>CH 8 - 2447 Mhz</option>
+        <option id='dropdownCH9' value='9'>CH 9 - 2452 Mhz</option>
+        <option id='dropdownCH10' value='10'>CH 10 - 2457 Mhz</option>
+        <option id='dropdownCH11' value='11'>CH 11 - 2462 Mhz</option>
+	<option id='dropdownCH12' value='12'>CH 12 - 2467 Mhz</option>
+        <option id='dropdownCH13' value='13'>CH 13 - 2472 Mhz</option>
+        <option id='dropdownCH14' value='14'>CH 14 - 2477 Mhz</option>
+    </select>
+
+    <label id="lChannelChoose"></label>
+    <select id='SelAboveOrBelow'>
+    	<option id='dropBelow' value='2'>Below</option>  
+        <option id='dropAbove' value='1'>Above</option>        
+    </select>
+
+    <!--
+    <select id='Channeldrpdwn_50G_20M' stype="display:none">
+    	<option id='dropdownWirelessAuto_20M' value='0'>Automatic</option>
+        <option id='dropdownCH1_20M' value='36'>CH 36 - 5180 Mhz</option>
+        <option id='dropdownCH2_20M' value='40'>CH 40 - 5200 Mhz</option>
+        <option id='dropdownCH3_20M' value='44'>CH 44 - 5220 Mhz</option>
+        <option id='dropdownCH4_20M' value='48'>CH 48 - 5240 Mhz</option>
+        <option id='dropdownCH5_20M' value='52'>CH 52 - 5260 Mhz</option>
+        <option id='dropdownCH6_20M' value='56'>CH 56 - 5280 Mhz</option>
+        <option id='dropdownCH7_20M' value='60'>CH 60 - 5300 Mhz</option>
+        <option id='dropdownCH8_20M' value='64'>CH 64 - 5320 Mhz</option>
+        <option id='dropdownCH9_20M' value='149'>CH 149 - 5745 Mhz</option>
+        <option id='dropdownCH10_20M' value='153'>CH 153 - 5765 Mhz</option>
+        <option id='dropdownCH11_20M' value='157'>CH 157 - 5785 Mhz</option>
+		<option id='dropdownCH12_20M' value='161'>CH 161 - 5805 Mhz</option>
+        <option id='dropdownCH13_20M' value='165'>CH 165 - 5825 Mhz</option>
+    </select>
+    <select id='Channeldrpdwn_50G_40M' stype="display:none">
+   	<option id='dropdownWirelessAuto_40M' value='0'>Automatic</option>
+        <option id='dropdownCH1_40M' value='36'>CH 36 - 5180 Mhz</option>
+        <option id='dropdownCH2_40M' value='40'>CH 40 - 5200 Mhz</option>
+        <option id='dropdownCH3_40M' value='44'>CH 44 - 5220 Mhz</option>
+        <option id='dropdownCH4_40M' value='48'>CH 48 - 5240 Mhz</option>
+        <option id='dropdownCH5_40M' value='52'>CH 52 - 5260 Mhz</option>
+        <option id='dropdownCH6_40M' value='56'>CH 56 - 5280 Mhz</option>
+        <option id='dropdownCH7_40M' value='60'>CH 60 - 5300 Mhz</option>
+        <option id='dropdownCH8_40M' value='64'>CH 64 - 5320 Mhz</option>
+        <option id='dropdownCH9_40M' value='149'>CH 149 - 5745 Mhz</option>
+        <option id='dropdownCH10_40M' value='153'>CH 153 - 5765 Mhz</option>
+        <option id='dropdownCH11_40M' value='157'>CH 157 - 5785 Mhz</option>
+	<option id='dropdownCH12_40M' value='161'>CH 161 - 5805 Mhz</option>
+    </select>
+    -->
+    
+
+    <div id='band40ACS_div' style='display: block'>
+    <label id='lBand40AcsSwitchEnable'></label>
+    <div id='rdRadioBand40ACS'  class="inlineDiv"> </div>
+    </div>
+    <br />
+    <label id='lMaxClients'></label>
+    <select id='MaxClientsdrpdwn'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+        <option value='6'>6</option>
+        <option value='7'>7</option>
+        <option value='8'>8</option>
+        <option value='9'>9</option>
+        <option value='10'>10</option>
+    </select>      
+    <br />
+    <label id='lBeaconPeriodSetting'></label>
+    <input type='text' name='beacon_Period' minlength = "2"  maxlength="4" value='' id='BeaconPeriod' class='textfield' /><strong id='sBeaconPeriod'>(in msec(50~4000))</strong>
+
+    <label id="lBeaconPeriodErrorLogs" class="error" style="display: none"></label>
+
+    <br />
+    <label id='lDTIMIntervalSetting'></label>
+    <input type='text' name='dtim_interval'  maxlength="3" value='' id='DTIMInterval' class='textfield' /><strong id='sDTIMInterval'>(1~100)</strong>
+    <label id="lDTIMIntervalErrorLogs" class="error" style="display: none"></label>
+
+    <div id='divApIsolateSwitch'>
+    <label  id="ApIsolateSwitchLabel"></label>
+    <select id='ApIsolateSwitchSel'>
+        <option id='DisabledApIsolateSwitch' value='0'>Disabled</option>
+	    <option id='EnableApIsolateSwitch' value='1'>Enabled</option>
+    </select>
+    </div>
+
+     </div>
+    <div class="formBox"></div>
+    <div align='right'><span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='setData()' /></span></div>
+
+    <hr />
+    <label id='lWifiAutoOffFun'></label>
+    <input id='DisableWifiAutoOffCheck' type='checkbox' onchange='DisableWifiOffChange()'  onclick='DisableWifiOffChange()' class="chk11"/>
+    <label id='lDisableWifiAutoOff'  class="lable11 subttl"></label>
+    <br />
+    <div id='lWifiOffTimeSet' style="display:block">
+    <br />
+    
+    <label id='lSleepTimeSetting'></label>
+    <input type='text' name='sleep_time'  maxlength="2" value='' id='WifiSleepTime' class='textfield' /><strong id='sSleepTimeUint'>(in Minutes(10~60))</strong>
+    </div>
+    <label id="lSleepTimeErrorLogs" class="error" style="display: none"></label>
+    <div align='right'><span class="btnWrp"><input type='button' id='btUpdate0' value='Save' onclick='SetWifiSleepTime()' /></span></div>

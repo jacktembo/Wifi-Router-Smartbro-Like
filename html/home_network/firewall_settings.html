@@ -1,0 +1,26 @@
+<a href='#' class='help' onclick="getHelp('FirewallSettings')">&nbsp;</a>
+
+    <div class="formBox">
+    <label id="title" class="title"></label>
+        <div >
+                <label id='lFirewallProtection'  class="subttl" ></label>
+                <div id='rdRadioFirewall' onclick='showVPN()' class="inlineDiv"> </div>
+        </div>
+  <br />
+        <div id='vpn'>
+                <label id='lVPN' ></label>
+
+                <label id='lIPSecPassthrough' class="subttl"></label>
+		<div id='rdRadioIPSec' class="inlineDiv"> </div>
+
+                <label id='lPPTPPassthrough'  class="subttl"></label>
+		<div id='rdRadioPPTP' class="inlineDiv"> </div>
+
+                <label id='lL2TPPassthrough'  class="subttl"></label>
+		<div id='rdRadioL2TP' class="inlineDiv"> </div>
+        </div>
+
+       
+    </div>
+        <div align='right'><span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='setData()' /></span></div>
+

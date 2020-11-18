@@ -1,0 +1,108 @@
+<div id="divSmsList" style="display: block">
+    <a href='#' class='help' onclick="getHelp('Message')">&nbsp;</a>
+    <label id="lt_sms_stcTitle" class="title">
+    </label>
+    <div id='DeleteSMSdiv' align='right' style='display: block'>
+        <span class="btnWrp">
+            <input type='button' id='lt_sms_btnNew' value='New' /></span> 
+            <span class="btnWrp">
+            <input type='button' id='lt_sms_btnDelete' value='Delete' /></span>
+             <!--<span class="btnWrp">
+            <input type="button" id="lt_sms_btnRefresh" value="Refresh" ></span>-->
+            <span class="btnWrp">
+            <input type="button" id="lt_sms_btnCopy" value="Copy"></span>
+            <span class="btnWrp">
+            <input type="button" id="lt_sms_btnMove" value="Move"></span>
+    </div>
+    <table width="100%" class="example dataTbl10  table-stripeclass:alternate" style="margin-top: 5px"
+        id="tableSMS">
+        <thead>
+            <tr>
+                <th width="15%" id="lt_sms_stcFrom" name="From">
+                </th>
+                <th width="55%" id="lt_sms_stcSubject" name="Subject">
+                </th>
+                <th width="15%" id="lt_sms_stcRecvTime" name="Received">
+                </th>
+                <th width="10%" id="lt_sms_stcStatus" name="Status">
+                </th>          
+                <th width="5%" name="DeleteAll">
+                    <div>
+                        <input align="right" type="checkbox" class="chk11" id="deleteAllSms"></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="smsListInfo">
+            <!--<tr style="cursor: pointer; background-color: rgb(255, 255, 255);">
+                <td>
+                    <span>10658139116960067106</span>
+                    <img src="images/ico_add_contact_hover.png" align="right"/>
+                </td>
+                <td>
+                    <div>
+                        <span>hello word...</span></div>
+                </td>
+                <td>
+                    <span>2013-02-21 13:47:43</span>
+                </td>
+                <td>
+                    <div>
+                        <label id="Status0" align="right">
+                            Readed</label></div>
+                </td>
+                <td>
+                    <div>
+                        <input align="right" type="checkbox" class="chk11" id="Delete0"></div>
+                </td>
+            </tr>-->
+        </tbody>
+    </table>
+    <div align="right" style="display: block;" id="divSmsPageNum">
+        <a style="color: red; font-weight: 700; text-decoration: underline;" href="###">1</a>
+    </div>
+</div>
+
+<div id="divSmsChatRoom" style="display:none">
+    <div id='divChosenUser' class="chzn-container" style="background-color: #D4DAE2; box-shadow: 0 -3px 3px #DDDDDD;
+        padding: 5px">
+        <ul id="ulchosenUser" class="chzn-choices" style="list-style: none outside none; width: 662px; padding: 3px;
+            margin: 0px">
+            <li id="chosen-search-field-input">
+                <input type="text" id="sendNumberList" maxlength="40" value=""
+                    style="width: 640px; height: 30px;"></li>
+        </ul>
+        <div id="chosenUserSelectDiv"  class="chzn-drop" style="left: 0px; width: 662px; top: 50px;
+            display: none;">
+            <select style="width:662px;height:80px;" multiple="" id="chosenUserSelect">               
+            </select>
+        </div>
+    </div>
+    <div id="divRecvSmsContent" style="background-color: #D4DAE2; box-shadow: 0 -3px 2px #DDDDDD;
+        padding-bottom: 35px; border: 1px solid #0099CC;width: 680px;word-break:break-all;">
+        <div id="txtRecvSmsContent" style="height: 150px; width: 668px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) inset;
+            padding: 4px;" readonly="true">hello,word!</div>
+     <!--   <img id="deletSmsImg" src="images/ico_delete_hover.png" align="right" style="margin-right: 30px; cursor: pointer;">-->
+        <img id="forwardSmsImg" src="images/ico_forward.png" align="right" style="margin-right: 10px; cursor: pointer;">
+       <!-- <img id="recvSmsTimeImg" align="right" style="margin-right: 10px;" alt="2013-5-6 12:22:01">-->
+       <span id="recvSmsTimeImg" align="right" style="margin-right: 10px;"></span>
+    </div>
+    <div id='divNewSmsContent'>
+        <textarea id="txtSmsContent" style="height: 150px; width: 670px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) inset;
+            padding: 4px;"></textarea>
+    </div>
+    <div align="right">
+        <span id="lt_sms_stcSmsErrorInfo" style="display:none;color:#f00"></span>
+        <span style="margin-right: 80px;"><em id="inputcount">(0/765)</em> <em id="inputItemCount">
+            (0/5)</em></span> 
+            <span id= "lt_sms_spanSend"class="btnWrp">
+                <input type='button' id='lt_sms_btnSend' value='Send'></span> 
+                <span id= "lt_sms_spanDraftSave" class="btnWrp">
+                 <input type="button" id="lt_sms_btnSaveDraft" value="Save"></span>
+                 <span class="btnWrp">
+                <input type='button' id='lt_sms_btnCancel' value='Cancel'></span>
+    </div>    
+
+</div>
+
+
+    

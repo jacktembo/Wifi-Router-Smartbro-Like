@@ -1,0 +1,31 @@
+<a href='#' class='help' onclick="getHelp('RebootRouter')">&nbsp;</a>
+
+    <label id="title" class="title"></label>
+    <label id='lRebootRouter'></label>
+
+    <br><br>
+    <div align='center'><span class="btnWrp"><input type='button' id='btRebootRouter' value='Reboot Router' onclick='rebootRouter()'  /></span>
+    </div>
+
+<div class="popUpBox" id="rebootRouterModalBox" style="display: none">
+    <h1 id="h1RebootRouter">  </h1>
+    <div align="center">
+        <label id="lRebootedRouter"> </label>
+    </div>
+</div>
+
+<div class="popUpBox" id="rebootRouterBox" style="display: none">
+    <h1 id="h1RebootRouter"></h1>
+    <a class="close" style="width: 40px;">&nbsp;</a><br style="clear:both" />
+    <div align="center">
+        <label id="lQueryRebootedRouter"></label>
+    </div>
+
+     <div class="bottonRow1" style="border-top:1px solid #a7a7a7; padding:7px 0; margin:7px 0 0 0; text-align:right" >
+            <a href="#." id="btnModalCancle"  onclick="hm()" class="cancel"></a>
+            <span class="btnWrp"> <button  onclick="OnRebootOK()" value="OK" id="btnRebootOK"></button></span>
+            
+     </div>
+
+</div>
+

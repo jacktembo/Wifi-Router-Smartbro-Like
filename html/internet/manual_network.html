@@ -1,0 +1,87 @@
+<a href='#' class='help' onclick="getHelp('ManualNetwork')">&nbsp;</a>
+<label id="title" class="title"></label>
+<div>
+  <label id='lMessageStatsInfo'></label>
+</div>
+
+<div id='ManualScandiv' style='display: block'><span class="btnWrp"><input type='button' id='btUpdate1' value='Manual Scan Network'  disabled="" onclick='ManualScanNetwork()' /></span>
+<span>&nbsp;&nbsp;&nbsp;</span>
+</div>
+
+<div id="ManualScanConfigure" style="display: none" >
+    <div class="popUpBox popUpBox2" style='width:350px;' >
+        <h1 id="h1manualnetwork" style='width:300px;'></h1>
+        <a href="#" class="close" onclick="btnCancelManualScanNetwork()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+        <p><font id="lManualPromte" color="#FF0000" size="+1">
+        	     &nbsp; &nbsp; Manual scan network may take more than one minute, please wait.
+        	</font>
+        </p>
+        <div class="pBoxCont" >
+            <div  class="buttonRow1">
+                <a href="#." id="btnCancel"  onclick="btnCancelManualScanConfigure()" class="cancel">Cancel</a>
+                <span class="btnWrp"><input id="btnConfirm" type="button"  value="Confirm" onclick="btnManualScanConfirm()" /></span>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+
+ <div id='ManualNetwork_div' style='display: none'>
+	<div>
+		<label id='lMannualNetwork'></label>
+		<select id='Networkdropdown' onchange="HideErrorTip()"></select><span>&nbsp; &nbsp;&nbsp;</span><span id="scanNetworkWaiting" style="color:red;display:none;" > Searching network,please waiting......</span>
+		<span id="selectEmptyNetworkTypeErrorTip" style="color:red;display:none;" > Selected network is empty.</span>
+		<br /><br />
+	</div>
+</div>
+
+<div id="MBMannualNetwork" style="display: none" >
+    <div class="popUpBox popUpBox2" style='width:500px;' >
+     <h1 id="h1MannualNetwork" style='width:450px;'></h1>
+     <a href="#" class="close" onclick="btnCancelMannualNetwork()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+    </div>
+</div>
+
+<div id='manual_network_check2div' style='display: block' ><label id='lManualNetworkStart'></label>
+     <input id='manual_network_check2' type='checkbox' class="chk11"/>
+        <label id='dispmanualnetworktext'  class="lable11 subttl"></label>
+    <br class="clear" /></div>
+<div id='BgScanNetwork' style='display: block'>
+	<label id="lBgScanTime"></label>
+	<select id='BgScanTimedropdown'>
+        	<option id='dropdownImmediate' value='0'>Immediate</option>
+        	<option id='dropdown30sec' value='1'>30 secondes</option>
+        	<option id='dropdown1M' value='2'>1 minutes</option>
+        	<option id='dropdown3M' value='3'>3 minutes</option>
+        	<option id='dropdown5M' value='4'>5 minutes</option>
+        	<option id='dropdown10M' value='5'>10 minutes</option>
+	        <option id='dropdown15M' value='6'>15 minutes</option>
+	        <option id='dropdown30M' value='7'>30 minutes</option>
+	        <option id='dropdown60M' value='8'>60 minutes</option>
+	        <option id='dropdownLteTimeDisable' value='9'>Disable</option>
+	</select>
+	<div id="BGScanTimePopup" style="display: none" >
+	    <div class="popUpBox popUpBox2" style='width:350px;' >
+		    <h1 id="h1BGScanTime" style='width:300px;'></h1>
+		    <a href="#" class="close" onclick="btnCancelBGScanTimePopup()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+		    <p><font color="#FF0000" size="+1">
+		    	     &nbsp; &nbsp; &nbsp;  Background scan time setting will take effect after system start.
+		    	</font>
+		    </p>
+	    </div>
+    </div>
+</div>
+<div id="divCurrentScanModeLabel">
+<label id="CurrentScanModeLabel"></label>
+<span id="txtCurrentScanMode"></span>
+</div>
+<div id="MBMannualNetworkFail" style="display: none" >
+    <div class="popUpBox popUpBox2" style='width:500px;' >
+     <h1 id="h1MannualNetworkFail" style='width:450px;'></h1>
+     <a href="#" class="close" onclick="btnCancelMannualNetworkFail()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+    </div>
+</div>
+<div align='right'><span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='setData()' /></span>
+</div>
+
+

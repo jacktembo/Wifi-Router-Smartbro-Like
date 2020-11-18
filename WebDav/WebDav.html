@@ -1,0 +1,185 @@
+
+<style type="text/css"> 
+.graph{ 
+width:250px; 
+border:1px solid #FFFFFF; 
+height:25px; 
+} 
+#bar{ 
+display:block; 
+background:#6CAF00; 
+float:left; 
+height:100%; 
+text-align:center; 
+} 
+#barNum{ 
+position:absolute; 
+} 
+
+#webdav_Back_label:hover,#webdav_Back_label:active {text-decoration:underline;}
+
+</style>
+
+
+<div id="WebdavLoginInfoDlg" style="display: none">
+    <div class="popUpBox popUpBox2">
+        <h1 id="WebdavLoginDlgTitle">WebDav Login</h1>
+        <a href="#" class="close">
+            <img src="images/close-icon.gif" alt="" onclick="hm()"/></a><br style="clear: both" />
+        <div class="pBoxCont">
+            <br style="clear: both" />
+            <label id='WebDavUsername'>Username</label>
+            <input type='text'  name='WebDav_username' maxlength="32" value='' id='tbaWebDav_username' class='textfield' onchange='hideError()' />
+            <br />
+            <label id='WebDavPassword'>Password</label>
+            <input type='password' value='' id='WebDav_password' maxlength="32" class='textfield' onkeypress='checkEnter(event)' />
+            <br />
+            <label class='error' id='lloginfailed'  style='display: none'>Invalid username or password </label>
+            <br style="clear: both" />            
+
+            <div class="buttonRow1">
+                <span class="btnWrp">
+                    <input id="lt_webdavLogin_btnSave" type="button" value="Login" onclick="WebDav_Login_OK()"/></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="mkdirInfoDlg" style="display: none">
+    <div class="popUpBox popUpBox2">
+        <h1 id="mkdirInfoDlgTitle">Create Folder</h1>
+        <a href="#" class="close">
+            <img src="images/close-icon.gif" alt="" onclick="hm()"/></a><br style="clear: both" />
+        <div class="pBoxCont">
+            <br style="clear: both" />
+            <label id="mkdir_stcName">Please input folder name</label>
+            <input name="" type="text" size="30" id="mkdirtxtName" maxlength="99"/>
+            <br style="clear: both" />            
+            <label id="mkdir_stcSaveLoc">
+            </label>           
+
+            <p id="mkdir_stcInputCheckout" style="text-align:center;color:red;display:none;">mkdir_stcInputCheckout</p>
+            <div class="buttonRow1">
+                <a href="#." id="mkdir_stcCancelView" onclick="hm()" class="cancel">Cancel</a>
+                <span class="btnWrp">
+                    <input id="lt_Mkdir_btnSave" type="button" value="OK"/></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="webdavuploadscheduleDlg" style="display: none">
+    <div class="popUpBox popUpBox2">
+        <h1 id="webdavuploadscheduleDlgTitle">Upload Schedule</h1>
+        <a href="#" class="close">
+            <img src="images/close-icon.gif" alt="" onclick="WebDav_Upload_Cancel()"/></a><br style="clear: both" />
+        <div class="pBoxCont">
+            <br style="clear: both" />
+            <div id="webdavuploadschedule_FileName"></div>
+            <div class="graph"> 
+				<strong id="bar" style="width:0%;"></strong>
+			</div>
+            <br style="clear: both" />         
+
+            <div class="buttonRow1">
+                <a href="#." id="upload_stcCancelView" onclick="WebDav_Upload_Cancel()" class="cancel">Cancel</a>
+                <span class="btnWrp">
+                    <input id="webdavuploadschedule_pause" type="button" value="Pause" onClick="WebDav_Upload_Pause()"/>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="webdavsharsettingDlg" style="display: none">
+	<div class="popUpBox popUpBox2">
+		<h1 id="webdavsharesettingDlgTitle">Shared File Setting</h1>
+		<a href="#" class="close">
+			<img src="images/close-icon.gif" alt="" onclick="hm()"/>
+		</a>
+		<br style="clear: both" />
+		<div class="pBoxCont">
+			<select id="ShareSelect" onchange="WebDav_Share_Setting_Select()">
+			<option id="ShareSelect1" value='1'>Shared The File</option>		
+			<option id="ShareSelect2" value='2'>Shared The Whole SD Card</option>
+			<option id="ShareSelect3" value='3'>The Last Set of Shared File</option>
+			<option id="ShareSelect4" value='4'>Web Share Close</option>
+			</select>
+			<div id="ShareFile_Path"></div>
+			<br style="clear: both"> 
+
+			<div id="share_mode_setting">
+ 
+				<label id="ShareFile_method" style="margin-left:40px;">Share Mode:</label>
+				<br style="clear: both">  
+				<input type="radio" id="ReadModeSta" style="margin-left:0px; border:none;" name="ReadModeSta" onclick="ShareReadMode()">
+				<span id="lreadmode">Read Only</span>
+				<br style="clear: both">  
+				<input type="radio" id="ReadWriteModeSta" style="margin-left:0px; border:none;" name="ReadWriteModeSta" onclick="ShareReadWriteMode()">
+				<span id="lreadwitemode">Read and Write</span>  
+			</div>
+			<br style="clear: both">	
+			<div class="buttonRow1">
+				<a href="#." id="share_stcCancelView" onclick="hm()" class="cancel">Cancel</a>
+
+				<span class="btnWrp">
+				<input id="webdavsharesetting_ok" type="button" value="OK" onclick="WebDav_Share_Setting_OK()">
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="webdav_function" align="right" > 
+	<span class="btnWrp" id="webdav_Download_Button" style="display: none">
+    <input type='btnWrp' id='webdavDownload' value='Download'/>
+    </span>
+    <span class="btnWrp" id="webdav_Delete_Button" style="">
+    <input type='button' id='webdavDelete' value='Delete' >
+    </span>
+    <span class="btnWrp" id="webdav_Share_Button" style="">
+    <input type='button' id='webdavShare' value='Share' >
+    </span>  
+	<span class="btnWrp" id="webdav_Upload_Button" style="width:86px;">
+	<input type="file" name="WebdavFileToUpload" id="WebdavFileToUpload" style="position:absolute; width:80px;height:30px;left:1260; filter:alpha(opacity:0);opacity: 0;"/>
+    <input type='button' id='webdavUpload' value='Upload' style="width:86px;"/>   
+    </span>
+    <span class="btnWrp" id="webdav_Mkdir_Button" style="">
+    <input type='button' id='webdavMkdir' value='new folder' />
+    </span>
+</div>
+
+
+
+<div id="webdav_Path_NoRoot" style="display: none">
+<a id="webdav_Back_label" href="#" style="font-size:12pt" onclick="WebDav_BackOnClick()">Back</a>
+<a href="#" style="color:black;">  |  </a>
+<a id="webdav_Path_record" style="color:black; font-weight:bold;">All File</a>
+</div>
+
+<div id="webdav_Path_Root" style="display: none">
+<a href="#" style="color:black;font-weight:bold;">All File</a>
+</div>
+
+<table width="100%" class="webdav_example dataTbl10  table-stripeclass:alternate" style="margin-top: 5px" id="tableSMS">
+        <thead>
+            <tr>
+				<th width="8%" name="DeleteAll">
+                    <div>
+                        <input align="right" type="checkbox" class="chk11" id="deleteAllWebdavFile">
+                    </div>
+                </th>
+                <th width="62%" id="webdav_name" name="Name" onclick="WebDav_NameOrderOnClick()">Name<img id="NameOrder" src=../images/ico_webdav_up.png style="display: none"></th>
+                <th width="10%" id="webdav_size" name="Size" onclick="WebDav_SizeOrderOnClick()">Size<img id="SizeOrder" src=../images/ico_webdav_up.png style="display: none"</th>
+                <th width="20%" id="webdav_date" name="Date" onclick="WebDav_FileDateOrderOnClick()">Date modified<img id="FiledateOrder" src=../images/ico_webdav_up.png style="display: none"</th>
+
+            </tr>
+        </thead>
+        <tbody id="WebdavFileListInfo">
+        </tbody>
+</table>
+
+

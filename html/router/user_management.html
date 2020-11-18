@@ -1,0 +1,71 @@
+<a href='#' class='help' onclick="getHelp('UserManagement')">&nbsp;</a>
+
+    <label id="title" class="title"></label>
+    <br style="clear:both" />
+<div id='User_Password_Reset_div' style='display:none'>
+    <label id='lUsername'></label>
+    <input type='text' name='router_username'  maxlength="32" value='' id='tbrouter_username' class='textfield' readonly = ""/>
+
+    <label id='lPassword'></label>
+    <input type='password' value='' id='tbrouter_password' maxlength="32" onchange='passwordChanged()' onkeypress='passwordChanged()' class='textfield'  />
+
+    <label id='lRePassword'  style='display: none'></label>
+    <input type='password' value='' id='tbreenter_password' maxlength="32" style='display: none'  class='textfield'/>
+    <div align='center' class="formBox">
+        <label class='error' id='lPassErrorMes'  style='display: none'></label>
+    </div>
+    <div align='right'><span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='validatePassword()' /></span>
+    </div>
+</div>
+
+<div id='User_Account_div' style='display:none'>
+	    <div align="right">
+     		<span id='btnwrpAddAccount' class="btnWrp"><input id="btnAddNewAccount" type="button" value="Add New Account" onclick="AddNewAccount()"/></span>
+     	</div>
+    	<label id="lAccountTabletitle"> </label>
+		<table width="100%" id="tableUserAccount" class="dataTbl10 example table-stripeclass:alternate" style="margin-top: 5px">
+			<thead>
+			<tr>
+			<th width="45%" id="ltAccountName"></th>
+			<th width="45%" id="ltAccountGroup"></th>
+			<th width="10%" id="ltAccountDelColumn"></th>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+
+	 <div id="MBAccount_Popup" style="display: none" >
+        <div class="popUpBox popUpBox2"  >
+            <h1 id="h1AccountEdit"></h1>
+	    	<a href="#" class="close" onclick="btnCancelClickedAccountEdit()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+            <div class="pBoxCont" >
+                <br style="clear:both" />
+                <label id="lAccountName"></label>
+                <input name="" type="text" size="30" id="txtAccountName" maxlength="20" readonly = ""/>
+				<label id='lAccountPassword'></label>
+   				<input type='password' value='' id='txtAccountPassword' maxlength="20" onchange='tablepasswordChanged()' onkeypress='tablepasswordChanged()' class='textfield'  />
+
+   				<label id='lReAccountPassword'  style='display: none'></label>
+   				<input type='password' value='' id='txtReAccountPassword' maxlength="20" style='display: none'  class='textfield'/>
+				<br style="clear:both" />
+				<label id="lAccountAuthority"></label>
+                <select id="AccountGroupSelect">
+                    <option value="0" id="opt_restricted">Restricted</option>
+                    <option value="1" id="opt_standard">Standard</option>
+                </select>
+                <br style="clear:both" />
+                 <br style="clear:both" />				
+      	        <label class='lable13' id='lTablePassErrorMes'  style='display: none'></label>
+   			
+   			      <br style="clear:both" /> 
+                <div class="buttonRow1">
+                    <a href="#." id="btnCancel"  onclick="btnCancelClickedAccountEdit()" class="cancel">Cancel</a>
+                    <span class="btnWrp"><input id="btnOk" type="button"  value="OK" onclick="btnOKClickedEditAccount()" /></span>
+                </div>
+
+            </div>
+        </div>
+     </div>
+
+</div>

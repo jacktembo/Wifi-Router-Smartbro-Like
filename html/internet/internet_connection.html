@@ -1,0 +1,563 @@
+<a href='#' id='inter_help' class='help' onclick="getHelp('InternetConnection')">&nbsp;</a>
+<form  id='adminform'>
+    <label id="title" class="title"></label>
+    <label id='lICS' class="title" style="display: none"> </label>
+    <label id='lMICI'></label>
+    <div id='selectpopup' style="display:block">
+    <select id='micdropdown' onchange='micdropdownChanged()'>
+        <option id='dropdownDisable' value='disabled'>Disabled</option>
+	    <option id='dropdownEnable' value='cellular'>Cellular</option>
+    </select>
+    </div>
+    <br />
+    <div id='workmode' style='display:none'>
+    <label id='lWorkMode' ></label>
+    <select id='WorkModeropdown' onchange='workmoderopdownChanged()'>
+        <!--<option id='dropdownMultimode' value='1'>4G/3G/2G multimode</option>-->
+        <option id='dropdown43Gonly' value='3'>Automatic</option>
+        <option id='dropdown4Gonly' value='2'>4G-LTE Only</option>
+        <!--<option id='dropdown32Gonly' value='4'>3G/2G</option>-->
+        <option id='dropdown3Gonly' value='5'>4G-HSPA+/3G Only</option>
+        <!--<option id='dropdown2Gonly' value='6'>2G only</option>-->
+        <!--<option id='dropdownDisableNw' value='7'>disable NW setting</option>-->
+        </select>
+    </div>
+    <div id='bootmode' style='display:none'>
+     <label id='lBootMode' ></label>
+     <select id='BootModeropdown' onchange='bootmoderopdownChanged()'>
+        <option id='dropdown4GPre' value='1'>4G Preferred</option>
+        <option id='dropdown3GPre' value='2'>3G Preferred</option>
+        <option id='dropdown2GPre' value='7'>2G Preferred</option>
+     </select>
+    </div>    
+     <div id='bootmode1' style='display:none'>
+	     <label id='lBootMode1' ></label>
+	     <select id='BootModeropdown1'>
+	        <option id='dropdown14GPre' value='3'>4G Preferred</option>
+	        <option id='dropdown13GPre' value='4'>3G Preferred</option>
+	     </select>
+    </div>
+     <div id='bootmode2' style='display:none'>
+	     <label id='lBootMode2' ></label>
+	     <select id='BootModeropdown2'>
+	        <option id='dropdown3GPreInBootMode2' value='5'>3G Preferred</option>
+	        <option id='dropdown2GPreInBootMode2' value='6'>2G Preferred</option>
+	     </select>
+    </div>
+    <div id='preferredLTEType' style='display:none'>
+    <label id='lsetLikeLTEType'></label>
+    <select id='setLikeLTETypedropdown'>
+             <option id='dropdownTDPre' value='0'>TD-LTE preferred</option>
+             <option id='dropdownFDDPre' value='1'>LTE FDD preferred</option>
+     </select>
+     </div>
+    <div id='connectmode' style='display:block'>
+        <label id="lCConnMode"></label>
+        <select id='Cconndropdown'  onchange='conndropdownChanged()'>
+    	    <option id='dropdown_auto' value='0'>Auto</option>
+            <option id='dropdown_manual' value='1'>Manual</option>
+        </select>
+        <input type="checkbox" id="RoamingDisableAutoDialCheckBox" style="margin-left:12px"/><span id="lRoamingDisableAutoDialTip" style="margin-left:3px">disable auto dialup when roaming</span>
+    </div>
+    <div id='divMtu' style='display:block'>
+        <label id="lMTULabel">MTU</label>        
+        <input type="text" id="txtMtuValue" maxlength="4"/><em style="margin-left:10px;color:red;">(1000-1500)</em>
+        <label id="lMtuInvalidTip" style="display: none;color:red;">MTU error</label> 
+    </div>
+    <div id='divAutoAPN' style='display:block'>
+        <label id="lAutoAPNLabel" style='margin-top:6px'>Auto APN</label>
+        <input type="checkbox" id="AutoConfigureAPNCheckBox" style="margin-right:8px"/><span id="lAutoConfigureAPNCheckBox" style="margin-left:3px">Auto configure APN</span>
+    </div>
+
+    <div id='divDialInRoaming' style='display:none'>
+    <label  id="DialInRoamingLabel"></label>
+    <select id='DialInRoamingSel'>
+        <option id='EnabledDialInRoaming' value='0'>Enabled</option>
+	    <option id='DisabledDialInRoaming' value='1'>Disabled</option>
+    </select>
+    </div>
+    
+    <!--<div id='divEngineeringModel' style='display:block'>
+    <label  id="EngineeringModelLabel"></label>
+    <select id='EngineeringModelSel' onchange='EngineeringModelChanged()'>
+        <option id='CloseEngineeringModel' value='0'>Disabled</option>
+	    <option id='OpenEngineeringModel' value='1'>Enabled</option>
+    </select>
+    </div>-->
+    <div id='divQueryTimeInterval' style='display:block'>
+        <label id="queryTimeIntervalLabel">TimeInterval</label>        
+        <input type="text" id="txtqueryTimeInterval" maxlength="4"/><em style="margin-left:10px;color:red;" id="queryTimeIntervalUnitLabel">min</em>
+    </div>
+    
+    
+   <br />
+
+
+<div id='Cellular_div' style='display: none'>
+    <div id='PDP_default'>
+        <label id='lPDP_default'>
+        </label>
+        <div id='p_PDP_default'>
+            <input style='margin-right:8px' id='pPDPdef_chk' name='Default Primary PDP' type='checkbox' onclick='pPDPdefChange()'/>
+            <label id='pPDPdef_lable' onmouseover='PDPColorChange("pPDPdef_lable")' onmouseout='PDPColorRestore("pPDPdef_lable")'
+                onclick='pPDPdefClick()' style="display: inline; color: #000;">
+                Default Primary PDP</label>            
+            <br class="clear" />
+        </div>
+        <div id='s_PDP_default'>
+         <input id='sPDPdef_chk' style='margin: 0px 8px 0px 30px' type='checkbox'/>
+            <label id='sPDPdef_lable' onmouseover='PDPColorChange("sPDPdef_lable")' onmouseout='PDPColorRestore("sPDPdef_lable")'
+                onclick='sPDPdefClick()' style="display: inline; color: #000;">
+                Default seconary PDP</label>
+            &nbsp;&nbsp
+            <label id='sPDPtft_lable' onmouseover='PDPColorChange("sPDPtft_lable")' onmouseout='PDPColorRestore("sPDPtft_lable")'
+                onclick='sPDPtftClick(2)' style="display: inline; color: #000;">
+                TFT Setting</label>           
+            <br class="clear" />
+        </div>
+        <br />
+    </div>
+    <div id='PDP_dedicate' style="display:none;">
+        <label id='lPDP_dedicate'>
+        </label>
+        <div id='p_PDP_dedicated'>
+            <input id='pPDPded_chk' type='checkbox' onclick='pPDPdedChange()' style='margin-right:8px'/>
+            <label id='pPDPded_lable' onmouseover='PDPColorChange("pPDPded_lable")' onmouseout='PDPColorRestore("pPDPded_lable")'
+                onclick='pPDPdedClick()' style="display: inline; color: #000;">
+                Delicate Primary PDP
+            </label>            
+            <br class="clear" />
+        </div>
+        <div id='s1_PDP_dedicated'>
+            <input id='s1PDPded_chk' style='margin: 0px 8px 0px 30px' type='checkbox'/>
+            <label id='s1PDPded_lable' onmouseover='PDPColorChange("s1PDPded_lable")' onmouseout='PDPColorRestore("s1PDPded_lable")'
+                onclick='s1PDPdedClick()' style="display: inline; color: #000;">
+                Delicate Secondary PDP 1
+            </label>
+            &nbsp;&nbsp
+            <label id='s1PDPtft_lable' onmouseover='PDPColorChange("s1PDPtft_lable")' onmouseout='PDPColorRestore("s1PDPtft_lable")'
+                onclick='sPDPtftClick(4)' style="display: inline; color: #000;">
+                TFT Setting</label>            
+            <br class="clear" />
+        </div>
+        <div id='s2_PDP_dedicated'>
+            <input id='s2PDPded_chk' style='margin: 0px 8px 0px 30px' type='checkbox'/>
+            <label id='s2PDPded_lable' onmouseover='PDPColorChange("s2PDPded_lable")' onmouseout='PDPColorRestore("s2PDPded_lable")'
+                onclick='s2PDPdedClick()' style="display: inline; color: #000;">
+                Delicate Secondary PDP 2
+            </label>
+            &nbsp;&nbsp
+            <label id='s2PDPtft_lable' onmouseover='PDPColorChange("s2PDPtft_lable")' onmouseout='PDPColorRestore("s2PDPtft_lable")'
+                onclick='sPDPtftClick(5)' style="display: inline; color: #000;">
+                TFT Setting</label>           
+            <br class="clear" />
+        </div>
+        <div id='s3_PDP_dedicated'>
+            <input id='s3PDPded_chk' style='margin: 0px 8px 0px 30px' type='checkbox'/>
+            <label id='s3PDPded_lable' onmouseover='PDPColorChange("s3PDPded_lable")' onmouseout='PDPColorRestore("s3PDPded_lable")'
+                onclick='s3PDPdedClick()' style="display: inline; color: #000;">
+                Delicate Secondary PDP 3
+            </label>
+            &nbsp;&nbsp
+            <label id='s3PDPtft_lable' onmouseover='PDPColorChange("s3PDPtft_lable")' onmouseout='PDPColorRestore("s3PDPtft_lable")'
+                onclick='sPDPtftClick(6)' style="display: inline; color: #000;">
+                TFT Setting</label>            
+            <br class="clear" />
+        </div>
+    </div>
+</div>
+     <div id='Popup_PDP' style="display: none">
+		<div class="popUpBox popUpBox2" style='width:500px;' >
+	        <h1 id="h1Popup_PDP" style='width:450px;'></h1>
+	        <a href="#" class="close" onclick="btnCancel()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+			<div class="pBoxCont" >
+                <label id="lRuleename"></label>
+                <input type="text" size="30" id="txtRulename" maxlength="25" disabled=""  readonly ="readonly"/>
+                <br style="clear:both" />
+                <div id="divApnNmae" style="display:none">
+                <label id="lAPN"></label>
+                <input type="text" size="30" id="txtAPNname" maxlength="25"/>
+                <br style="clear:both" />
+                <label id="lLteAPN"></label>
+                <input type="text" size="30" id="txtLteAPNname" maxlength="25"/>
+                <br style="clear:both" />
+                </div>
+                 <div id='connnum_div' style='display:none'>
+	                 <label id="lconnnum"></label>
+	                <input type="text" size="30" id="txtconnnum" maxlength="25"/>
+	                <br style="clear:both" />
+	                <label id="lpconnnum"></label>
+	                <input type="text" size="30" id="txtpconnnum" maxlength="25"/>
+	                <br style="clear:both" />
+	                  <label id="lsecondary"></label>
+	                <input type="text" size="30" id="txtsecondary" maxlength="25"/>
+	                <br style="clear:both" />
+	                 <label id="ldefault"></label>
+	                <input type="text" size="30" id="txtdefault" maxlength="25"/>
+	                <br style="clear:both" />
+	                  <label id="lchkenable"></label>
+	                <input type="text" size="30" id="txtenable" maxlength="25"/>
+	                <br style="clear:both" />
+                </div>
+                <div id="divIpType" style="display:none">
+		        <label id="lIPType"></label>
+		        <select id='lIPTypedropdown' >
+	        	    <option id='dropdown_IPV4V6' value='0'>IPV4V6</option>
+		            <option id='dropdown_IPV4' value='1'>IPV4</option>
+		            <option id='dropdown_IPV6' value='2'>IPV6</option>
+		        </select>
+		        <br style="clear:both" />
+		        </div>
+		        <div id ='lQOSEnbale'>
+		        	 <label id="lQOSEnbaletitle">Enable QOS</label>		        	
+		        	 <input id='1QOSEnablechk' type='checkbox' class='chk11' onchange='QOSEnbaleChange()'  onclick='QOSEnbaleChange()' style="width:20px;height:20px"/>
+	  	  			 <br class="clear" />
+		        </div>
+		        <div id="lQOSEngine" style='display: none'>
+			        <label id="lQOSQCI">QCI</label>
+			        <input name="" type="text" id="txtQOSQCI" class="textfield"  onfocus='$("#qciCheckError").hide()'/> <strong>(number)</strong>			        
+		        </div>
+		        <br style="clear:both" />
+		        <label id="l2G3GAuthType">2G3G Authentication Type</label>
+		        <select id='Sel2G3GAuthType' onchange="f2G3GAuthTypeChanged()">
+	        	    <option  value='NONE'>NONE</option>
+		            <option  value='PAP'>PAP</option>
+		            <option  value='CHAP'>CHAP</option>
+		        </select>
+		        <div id="div2G3GAuthEnabled">
+		         <br style="clear:both" />
+	                 <label id="l2G3GUser"></label>
+	                <input type="text" size="30" id="txt2G3GUser" maxlength="25"/>
+	                <br style="clear:both" />
+	                  <label id="l2G3GPassword"></label>
+	                <input type="text" size="30" id="txt2G3GPassword" maxlength="25"/>		        
+		        </div>
+		        <br style="clear:both" />
+		        <label id="l4GAuthType">4G Authentication Type</label>
+		        <select id='Sel4GAuthType' onchange="LteAuthTypeChanged()">
+	        	    <option  value='NONE'>NONE</option>
+		            <option  value='PAP'>PAP</option>
+		            <option  value='CHAP'>CHAP</option>
+		        </select>
+		        <div id="div4GAuthEnabled">
+		         <br style="clear:both" />
+	                 <label id="l4GUser"></label>
+	                <input type="text" size="30" id="txt4GUser" maxlength="25"/>
+	                <br style="clear:both" />
+	                  <label id="l4GPassword"></label>
+	                <input type="text" size="30" id="txt4GPassword" maxlength="25"/>		        
+		        </div>
+		        <br style="clear:both" />
+		        <label id="lErrorLogs" class="lable13" style="display: none"></label>
+		        <label  id="qciCheckError" class="lable13" style="display: none">QCI  must be an integer and greater than zero </label>
+                <div  class="buttonRow1">
+                    <a href="#." id="btnCancel"  onclick="btnCancel()" class="cancel">Cancel</a>
+                    <span class="btnWrp"><input id="btnOK_PDP" type="button" onclick="btnOKPDPSetting()" /></span>
+
+                </div>
+            </div>
+		</div>
+		
+		
+     </div>
+     <div id='Popup_TFT' style='display: none'>
+     	 <div class="popUpBox popUpBox2" style='width:700px' >
+             <h1 id="h1TFTTableRule"   style='width:650px;'></h1>
+	   		 <a href="#" class="close" onclick="btnCancelTFTBox()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+     		 <div align="right">
+     			<span id='btnwrpAddTFT' class="btnWrp"><input id="btnAddNewTFTRule" type="button" value="Add"/></span>
+     		</div>
+    	<label id="lTFTTabletitle"> </label>
+		<table width="100%" id="tableTFTProfiles" class="dataTbl10 example table-stripeclass:alternate" style="margin-top: 5px">
+			<thead>
+			<tr>
+			<th width="20%" id="ltTFTname"></th>
+			<th width="10%" id="ltIPType"></th>
+			<th width="30%" id="ltRemoteIP"></th>
+			<th width="18%" id="ltLocalPort"></th>
+			<th width="18%" id="ltRemotePort"></th>
+			<th class="close">&nbsp;</th>
+			</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		</div>
+     </div>
+    <div id="MBTFTBox" style="display: none" >
+	   <div class="popUpBox popUpBox2" style='width:550px' >
+            <h1 id="h1AddTFTRule"   style='width:500px;'></h1>
+	   		 <a href="#" class="close" onclick="btnCancelTFTBox()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+
+            <div class="pBoxCont">
+                  <br style="clear:both" />
+                <label id="lRuleName_TFT"></label>
+                <input name="" type="text" size="30" id="txttftRulename" maxlength="25" /><strong style="color:red" >*</strong>
+                <br style="clear:both" />
+                <label id="lpacketfilter_index"></label>
+                <input name="" type="text" size="30" id="txttftPfindex" maxlength="1" /><strong>(1-8)</strong>
+                <br style="clear:both" />
+                <label id="levaluation_index"></label>
+                <input name="" type="text" size="10" id="txttftEvaindex" maxlength="3" /><strong>(0-255)</strong>
+                <br style="clear:both" />
+                 <label id="ldirection"></label>
+                <select id='directiondropdown' >
+	        	    <option id='dropdown_uplink' value='1'>Uplink</option>
+		            <option id='dropdown_downlink' value='2'>Downlink</option>
+		            <option id='dropdown_both' value='3'>Both</option>
+		        </select>
+                <br style="clear:both" />
+                 <label id="lprotocol_TFT"></label>
+                 <input name="" type="text" size="10" id="txttftProtocolnumber" maxlength="3" /><strong>(0-255)</strong>
+                <br style="clear:both" />
+                 <label id="lTFTIPAddress"></label>             
+   				<input style="width:30px" type='radio' id="IPV4Radio" name ="RemoteIpAddress" value ='1' onchange="IPV4RadioChange()" checked onClick="this.blur();" >IPV4</input>
+   				<input style="width:30px" type='radio' id="IPV6Radio" name ="RemoteIpAddress" value ='2' onchange="IPV6RadioChange()" onClick="this.blur();" >IPV6</input>
+   				<input style="width:30px" type='radio' id="NoIPRadio" name ="RemoteIpAddress" value ='0' onchange="NoIPChange()"  onClick="this.blur();" >NoIP</input>
+   				<br style="clear:both" />
+                <div class="boxCont2" id='TFTv6Address' style='display: none'>
+                    <label id="lIPAddress_TFT"></label>
+	                <input name="input" type="text" size="10" id="txtv6IP1" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP1")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP2" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP2")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP3" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP3")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP4" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP4")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP5" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP5")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP6" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP6")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP7" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP7")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP8" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP8")'/> <strong>&middot;</strong>
+	                <input style="margin-left:150px;" name="input" type="text" size="10" id="txtv6IP9" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP9")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP10" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP10")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP11" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP11")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP12" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP12")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP13" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP13")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP14" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP14")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP15" class="sml" maxlength="2" onkeyup='setFocus("txtv6IP15")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6IP16" class="sml" maxlength="2"/>
+	                <br style="clear:both" />
+	                <label id="lSubnetmask_TFT"></label>
+	                <input name="input" type="text" size="10" id="txtv6Netmask1" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask1")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask2" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask2")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask3" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask3")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask4" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask4")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask5" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask5")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask6" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask6")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask7" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask7")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask8" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask8")'/> <strong>&middot;</strong>
+	                <input style="margin-left:150px;" name="input" type="text" size="10" id="txtv6Netmask9" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask9")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask10" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask10")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask11" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask11")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask12" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask12")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask13" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask13")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask14" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask14")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask15" class="sml" maxlength="2" onkeyup='setFocus("txtv6Netmask15")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" size="10" id="txtv6Netmask16" class="sml" maxlength="2"/>
+	                <br style="clear:both" />
+               </div>
+               <div class="boxCont2" id='TFTv4Address'	style='display: block'>
+              	  <label id="lIPV4Address_TFT"></label>
+	                <input name="input" type="text" maxlength="3" size="3" id="txtv4IP1" class="sml" onkeyup='setFocusID("txtv4IP1","txtv4IP2")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" maxlength="3" size="3" id="txtv4IP2" class="sml" onkeyup='setFocusID("txtv4IP2","txtv4IP3")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" maxlength="3" size="3" id="txtv4IP3" class="sml" onkeyup='setFocusID("txtv4IP3","txtv4IP4")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" maxlength="3" size="3" id="txtv4IP4" class="sml" />
+	                <br style="clear:both" />
+	                <label id="lV4Subnetmask_TFT"></label>
+	                 <input name="input" type="text" maxlength="3" size="3" id="txtv4Netmask1" class="sml" onkeyup='setFocusID("txtv4Netmask1","txtv4Netmask2")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" maxlength="3" size="3" id="txtv4Netmask2" class="sml" onkeyup='setFocusID("txtv4Netmask2","txtv4Netmask3")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" maxlength="3" size="3" id="txtv4Netmask3" class="sml" onkeyup='setFocusID("txtv4Netmask3","txtv4Netmask4")'/> <strong>&middot;</strong>
+	                <input name="input" type="text" maxlength="3" size="3" id="txtv4Netmask4" class="sml" />
+	                <br style="clear:both" />
+               </div>
+                <label id="lLocalPort"></label>
+                <input name="input" type="text" size="10" id="txtLocalPortRange1" class="mid" maxlength="5" />
+                <input name="input" type="text" size="10" style="margin-left:12px" id="txtLocalPortRange2" class="mid" maxlength="5" />
+                 <br style="clear:both" />
+                <label id="lRemotePort"></label>
+                <input name="input" type="text" size="10" id="txtRemotePortRange1" class="mid" maxlength="5" />
+                <input name="input" type="text" size="10" style="margin-left:12px" id="txtRemotePortRange2" class="mid" maxlength="5" />
+				 <div id='PFIndex_div' style='display:none'>
+	                 <label id="lpfindex"></label>
+	                 <input type="text" size="30" id="txtpfindex" maxlength="25"/>
+	             </div>
+	        <label id="lTFTRuleError" class="lable13" style="display: none"></label>
+			<div class="bottonRow1" style="border-top:1px solid #a7a7a7; padding:7px 0; margin:7px 0 0 0; text-align:right" >
+                    <a href="#." id="btnCancel" onclick="btnCancelClickedMACFilters()" class="cancel">Cancel</a>
+                    <span id="SaveTFTRuleSpan" class="btnWrp"><input id="btnAddTFTRule" type="button"  value="Add"/></span>
+
+            </div>
+	      </div>
+	 </div>
+  	</div>
+
+     <div id='ManualNetwork_div' style='display: none'>
+    	   <div>
+	<label id='lMannualNetwork'></label>
+	<select id='Networkdropdown'></select>
+	<br /><br />
+	</div>
+   </div>
+    <div id='WiFi_div' style='display: none'>
+	<div id="ConfigureButton" align="right" ><span  class="btnWrp">
+	<input type='button' id='btnConfigure' value='Webportal Configure' onclick='preset_webportal()'/>
+	</span>
+	</div>
+	<div id="ScanWirelessButton" align="right"><span class="btnWrp">
+	<input type='button' id='btnScanWirelessNw' onclick='ScanWirelessNws()'/>
+	</span>
+	</div>
+        <table width="60%" border="1" id="tableWNs" cellspacing="0" cellpadding="0" class="dataTbl10 example table-stripeclass:alternate" style="margin-top: 5px">
+            <thead>
+                <tr>
+                    <th width="100%" id="ltWirelessNws"></th>
+		    <th class="close">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div id="ConfirmMB" style="display: none">
+	    <h1 id="lConnect1"></h1>
+	    <a href="#" class="close" onclick="CancelS('ConfirmMB')"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+	    <div align="center">
+    	    	<label id="lConfirmMessage1" class="lable12"></label>
+    		<br style="clear:both" />
+    		<div class="buttonRow1" style="text-align:center">
+		        <a href="#." id="btnCancel1"  onclick="CancelS('ConfirmMB')" class="cancel"></a>
+        		<span class="btnWrp"><input id="btnConnectW" style="width:120px" type="button"  onclick="btnConnectSelected()" /></span>
+		    </div>
+       </div>
+    </div>
+    <div id="PSKMB" style="display: none" >
+        <div class="popUpBox popUpBox2" style='width:400px;' >
+            <h1 id="lConnect2"  style='width:350px;'></h1>
+            <a href="#" class="close" onclick="CancelS('PSKMB')"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+	        <div align="center">
+     	    	<label id="lConfirmMessage2" style="font-weight:bold" ></label>
+	        </div>
+
+            <div class="pBoxCont" >
+		        <label id="lpsk"></label>
+	    	    <input  type="password" class="textfield" id="tbpsk" onchange='clearError()' onkeypress='clearError()'/>
+                <br style="clear:both" />
+		        <label id="lRetypepsk"></label>
+     	    	<input type='password' id='tbre_psk' class='textfield' onchange='clearError()' onkeypress='clearError()'/>
+                <br style="clear:both" />
+		        <label id="lPSKErrorMesPN" class="lable13" style="display: none"></label>
+    	        <div class="buttonRow1" style="text-align:center">
+	        	<a href="#." id="btnCancel2"  onclick="CancelS('PSKMB')" class="cancel"></a>
+        		<span class="btnWrp"><input id="btnConnectWP" type="button"  onclick="btnConnectPSKSelected()" /></span>
+	    	    </div>
+	        </div>
+	    </div>
+    </div>
+    <div id="MBConfigure" style="display: none" >
+        <div class="popUpBox popUpBox2" style='width:500px;' >
+            <h1 id="h1Configure" style='width:450px;'></h1>
+            <a href="#" class="close" onclick="btnCancelConfigure()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+
+            <div class="pBoxCont" >
+                <label id="lWUsername"></label>
+                <input type="text" size="30" id="txtWUsername" maxlength="50" />
+                <br style="clear:both" />
+                <label id="lWPassword"></label>
+	        	<input type="text" size="30" id="txtWPassword" maxlength="50"/>
+                <br style="clear:both" />
+                <div  class="buttonRow1">
+                    <a href="#." id="btnCancel"  onclick="btnCancelConfigure()" class="cancel">Cancel</a>
+                    <span class="btnWrp"><input id="btnOK" type="button"  value="OK" onclick="btnOKConfigure()" /></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="MBAddNewProfile" style="display: none" >
+        <div class="popUpBox popUpBox2" style='width:500px;' >
+            <h1 id="h1AddNewProfile" style='width:450px;'></h1>
+            <a href="#" class="close" onclick="btnCancelClickedProfile()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+
+            <div class="pBoxCont" >
+                <label id="lProfilename"></label>
+                <input type="text" size="30" id="txtProfilename" maxlength="25"/>
+                <br style="clear:both" />
+                <label id="lAPN"></label>
+                <input type="text" size="30" id="txtAPNname" maxlength="25"/>
+                <br style="clear:both" />
+                <label id="lCUsername"></label>
+                <input type="text" size="30" id="txtUsername" maxlength="25"/>
+		        <br style="clear:both" />
+                <label id="lCPassword"></label>
+	        	<input type="text" size="30" id="txtPassword" maxlength="25"/>
+                <br style="clear:both" />
+                <label id="lCAccessNumber"></label>
+                <input type="text" size="30" id="txtAccessNumber" maxlength="25"/>
+		        <br style="clear:both" />
+		        <label id="lCConnMode"></label>
+		        <select id='Cconndropdown'  onchange='conndropdownChanged()'>
+	        	    <option id='dropdown_auto' value='0'>Auto</option>
+		            <option id='dropdown_manual' value='1'>Manual</option>
+		        </select>
+		        <br style="clear:both" />
+		        <div id="CIdle" style='display: none'>
+			        <label id="lCIdle"> </label>
+			        <input name="" type="text" id="txtIdle" class="textfield" /> <strong>(seconds)</strong>
+		        </div>
+		        <br style="clear:both" />
+		        <label id="lErrorLogs" class="lable13" style="display: none"></label>
+                <div  class="buttonRow1">
+                    <a href="#." id="btnCancel"  onclick="btnCancelClickedProfile()" class="cancel">Cancel</a>
+                    <span class="btnWrp"><input id="btnOk" type="button" onclick="btnOKClickedProfile()" /></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="MBMannualNetwork" style="display: none" >
+	    <div class="popUpBox popUpBox2" style='width:500px;' >
+	     <h1 id="h1MannualNetwork" style='width:450px;'></h1>
+	     <a href="#" class="close" onclick="btnCancelMannualNetwork()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+	    </div>
+    </div>
+<div id='AdvancedSettings' style='display: none'>
+	<label id="lConnMode"></label>
+	<select id='conndropdown'  onchange='conndropdownChanged()'>
+        	<option value='0'>Always On</option>
+	        <option value='1'>On Demand</option>
+	</select>
+	<div id="Idle" style='display: none'>
+		<label id="lIdle"></label>
+		<input name="" type="text" id="tbIdle" class="textfield" /> <strong>(seconds)</strong>
+
+	</div>
+</div>
+
+<div id='check2div' style='display: none' ><label id='lCustomDNS'>Custom DNS</label>
+     <input id='check2' type='checkbox' onchange='check1Change()'  onclick='check1Change()' class="chk11"/>
+        <label id='disptext3'  class="lable11 subttl"></label>
+    <br class="clear" /></div>
+
+<div id='manual_network_check2div' style='display: none' ><label id='lManualNetworkStart'></label>
+     <input id='manual_network_check2' type='checkbox' onchange='ManualNetworkChange()'  onclick='ManualNetworkChange()' class="chk11"/>
+        <label id='dispmanualnetworktext'  class="lable11 subttl"></label>
+    <br class="clear" /></div>
+<div id='BgScanNetwork' style='display: none'>
+	<label id="lBgScanTime"></label>
+	<select id='BgScanTimedropdown'  onchange='BgScanTimeDropdown()'>
+        	<option value='0'>Now</option>
+	        <option value='900'>15 minutes</option>
+	        <option value='1800'>30 minutes</option>
+	        <option value='3600'>60 minutes</option>
+	        <option value='disable'>Disable</option>
+	</select></div>
+    <div id='customeDNS' style='display: none'>
+        <label id='lCustomeDNS1'></label><br class="clear clearCrm" /><div id="divCustomeDNS1"> </div><br class="clear" />
+
+        <label id='lCustomeDNS2'></label><br class="clear clearCrm" /><div id="divCustomeDNS2"> </div><br class="clear" /><br class="clear" /></div>
+
+  <div align='center'>
+        <label class='error' id='lIPErrorMsg'  style='display: none'></label>
+    </div>
+    <div class="formBox" id="divFormBox"></div>
+    <div align='right' id="divSaveButton"><span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='setData()' /></span>
+    </div>
+</form>
+
+

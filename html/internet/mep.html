@@ -1,0 +1,123 @@
+<a href='#' class='help' onclick="getHelp('PinPuk')">&nbsp;</a>
+
+<div id="MEP_PinAttempts_div" style="display: none">
+	<label id="lPINAttempts" class="title"></label>
+	<label id="vPinAttmepts"> </label>
+	<br>
+</div>
+
+<div id="MEP_Pin_div" style="display: none">
+	<label id="lMEPPin" class="title"></label>
+	<br style="clear:both" />
+	<label id="lPin"></label>
+	<input name="" type="password" maxlength="8" id="txtEnterPin" class="textfield" />
+	<div class="pBoxCont" ><label id="lPINAlertError" class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lUnlockPINBtn' value='' onclick='UnlockPin()'  /></span> </div>
+</div>
+
+<div id="MEP_PinPukAttempts_div" style="display: none">
+	<label id="lPUKAttempts" class="title"></label>
+	<label id="vPukAttmepts"> </label>
+	<br>
+	<label id="lMEPPukpin"></label>
+	<input name="" type="password" maxlength="8" id="txtEnterPinPuk" class="textfield" />
+	<div class="pBoxCont" ><label id="lPINPUKAlertError" class="error"></label></div>
+</div>
+<div id="MEP_ResetPinUsingPuk_div" style="display: none">
+	<label id="lResetPin" class="title"></label>
+	<label id="lPinPuk"> </label>
+	<input name="" type="password" maxlength="10" id="txtEnterPinPukpassword" class="textfield" />
+
+	<br style="clear:both" />
+	<label id="lEnterNewPin"> </label>
+	<input name="" type="password" maxlength="8" id="txtEnterNewPin" class="textfield" />
+	<div class="pBoxCont" ><label id="lNewPINAlertError" class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lUnlockPINPukBtn' value='' onclick='ResetPinUsingPuk()'  /></span> </div>
+</div>
+
+<div id="MEP_PNPassword_div" style="display: none">
+	<label id="lMEPPNpasswordSetting" class="title"></label>
+	<label id="lMEPPNLeftRetry" class="title"></label>
+
+	<label id="lMEPPNpassword"> </label>	
+	<input name="" type="password" maxlength="16" id="lEnterPNPassword" class="textfield" />
+	<div class="pBoxCont" ><label id="lMEPPNAlertError" class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lUnlockMEPPNBtn' value='' onclick='UnlockMEPPN()'  /></span> </div>
+</div>
+
+<div id="MEP_PN_PUK_div" style="display: none">
+	<label id="lMEPPNpukSetting" class="title"></label>
+	<label id="lMEPPNpuk"> </label>
+	<input name="" type="password" maxlength="16" id="lPnPukPassword" class="textfield" />
+	<div align='right'><span class="btnWrp"><input type='button' id='lMEPPNpukBtn' value='' onclick='MEPPnPuk()'  /></span> </div>
+</div>
+
+<div id="MEP_PUPassword_div" style="display: none">
+	<label id="lMEPPUpasswordSetting" class="title"></label>
+	<label id="lMEPPUAttempts" class="title"></label>
+
+	<label id="lMEPPUpassword"> </label>
+	<input name="" type="password" maxlength="16" id="lEnterPUPassword" class="textfield" />
+	<div class="pBoxCont" ><label id="lMEPPUAlertError" class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lUnlockMEPPUBtn' value='' onclick='UnlockMEPPU()'  /></span> </div>
+</div>
+
+<div id="MEP_PU_PUK_div" style="display: none">
+	<label id="lMEPPUpukSetting" class="title"></label>
+	<label id="lMEPPUpuk"> </label>
+	<input name="" type="password" maxlength="16" id="lPuPukPassword" class="textfield" />
+	<div align='right'><span class="btnWrp"><input type='button' id='lMEPPUpukBtn' value='' onclick='MEPPuPuk()'  /></span> </div>
+</div>
+
+<div id="MEP_SPPassword_div" style="display: none">
+	<label id="lMEPSPpasswordSetting" class="title"></label>
+	<label id="lMEPSPAttempts" class="title"></label>
+
+	<label id="lMEPSPpassword"> </label>
+	<input name="" type="password" maxlength="16" id="lEnterSPPassword" class="textfield" />
+	<div class="pBoxCont" ><label id="lMEPSPAlertError" class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lUnlockMEPSPBtn' value='' onclick='UnlockMEPSP()'  /></span> </div>
+</div>
+
+<div id="MEP_SP_PUK_div" style="display: none">
+	<label id="lMEPSPpukSetting" class="title"></label>
+	<label id="lMEPSPpuk"> </label>
+	<input name="" type="password" maxlength="16" id="lSpPukPassword" class="textfield" />
+	<div align='right'><span class="btnWrp"><input type='button' id='lMEPSPpukBtn' value='' onclick='MEPSPPuk()'  /></span> </div>
+</div>
+
+<div id="MEP_PCPassword_div" style="display: none">
+	<label id="lMEPPCpasswordSetting" class="title"></label>
+	<label id="lMEPPCAttempts" class="title"></label>
+	
+	<label id="lMEPPCPpassword"> </label>
+	<input name="" type="password" maxlength="16" id="lEnterPCPassword" class="textfield" />
+	<div class="pBoxCont" ><label id="lMEPPCAlertError" class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lUnlockMEPPCBtn' value='' onclick='UnlockMEPPC()'  /></span> </div>
+</div>
+
+<div id="MEP_PC_PUK_div" style="display: none">
+	<label id="lMepPcPukSetting" class="title"></label>
+	<label id="lMepPcPuk"> </label>
+	<input name="" type="password" maxlength="16" id="lPcPukPassword" class="textfield" />
+	<div class="pBoxCont" ><label id="lMepPcPukAlertError" class=class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lMepPcPukBtn' value='' onclick='MepPcPuk()'  /></span> </div>
+</div>
+
+<div id="MEP_SIMPassword_div" style="display: none">
+	<label id="lMEPSIMpasswordSetting" class="title"></label>
+	<label id="lMEPSIMAttempts" class="title"></label>
+	<label id="lMEPSIMpassword"> </label>
+	<input name="" type="password" maxlength="16" id="lEnterSIMPassword" class="textfield" />
+	<div class="pBoxCont" ><label id="lMEPPSIMAlertError" class=class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lUnlockMEPSIMBtn' value='' onclick='UnlockMEPSIM()'  /></span> </div>
+</div>
+
+<div id="MEP_SIM_PUK_div" style="display: none">
+	<label id="lMepSimPukSetting" class="title"></label>
+	<label id="lMepSimPuk"> </label>
+	<input name="" type="password" maxlength="16" id="lSimPukPassword" class="textfield" />
+	<div class="pBoxCont" ><label id="lMepSimPukAlertError" class=class="error"></label></div>
+	<div align='right'><span class="btnWrp"><input type='button' id='lMepSimPukBtn' value='' onclick='MepSimPuk()'  /></span> </div>
+</div>
+

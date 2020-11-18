@@ -1,0 +1,83 @@
+<a href='#' class='help' onclick="getHelp('CustomFirewallRules')">&nbsp;</a>
+
+    <label id="title" class="title"></label>
+    <label id="lCustomPWRulesText" class="subttl">
+
+     </label>
+     <label id='lPFStatus'></label>
+   		<div id='rdRadioPF' onclick='EDPFRadio()' class="inlineDiv"> </div>
+        <BR />
+		<div id="pf_rules_settings">
+        <div align="right"><span class="btnWrp"><input id="btnAddRule" type="button" value="Add Rule" onclick="addCustomPFRule()" /></span>
+        </div>
+        <table width="100%" id="tableCustomPW" class="dataTbl10 example table-stripeclass:alternate" style="margin-top: 5px">
+            <thead>
+                <tr>
+                    <th width="20%" id="ltPWRuleName"></th>
+                    <th width="25%" id="ltPWIP"></th>
+                    <th width="25%" id="ltPWPort"></th>
+                    <th width="20%" id="ltPWProtocol"></th>
+                    <th class="close">&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+       <div id="MBCustomPW" style="display: none" >
+        <div class="popUpBox popUpBox2"  >
+            <h1 id="h1CustomPWRule"></h1>
+	    	<a href="#" class="close" onclick="btnCancelClickedCustomPW()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+            <div class="pBoxCont" >
+                <br style="clear:both" />
+                <label id="lRuleName_pw"></label>
+                <input name="" type="text" size="30" id="txtRulename" maxlength="25" onclick="txtRulenameClicked()"/>
+
+				<br style="clear:both" />
+                <label id="lIP_pw"></label>
+                <input name="input" type="text" maxlength="3" size="3" id="txtPWIPAddress1" class="sml" value = "192" readonly ="readonly" /> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtPWIPAddress2" class="sml" value = "168" readonly  ="readonly" /> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtPWIPAddress3" class="sml" readonly = ""/> <strong>&middot;</strong>
+                <input name="input" type="text" maxlength="3" size="3" id="txtPWIPAddress4" class="sml" onkeyup='setFocusID("txtPWIPAddress4","txtPWIPAddress4")'/>
+				<br style="clear:both" />
+
+				<br style="clear:both" />
+                <label id="lPort_pw"></label>
+                <input name="input" type="text" size="10" id="txtPWPortRange1" class="mid" maxlength="5" />
+                <input name="input" type="text" size="10" style="margin-left:12px" id="txtPWPortRange2" class="mid" maxlength="5" />
+
+				<label id="lProtocol_pw"></label>
+                <select id="pfSelect">
+                    <option value="TCP">TCP</option>
+                    <option value="UDP">UDP</option>
+                    <option value="BOTH">BOTH</option>
+                </select> <br style="clear:both" />
+                <br style="clear:both" />
+                <label id="lCustomFWError" class="lable13" style="display: none"></label>
+
+                <div class="buttonRow1">
+                    <a href="#." id="btnCancel"  onclick="btnCancelClickedCustomPW()" class="cancel">Cancel</a>
+                    <span class="btnWrp"><input id="btnOk" type="button"  value="OK" onclick="btnOKClickedCustomPW()" /></span>
+                </div>
+
+            </div>
+        </div>
+      </div>
+    </div>
+    <div id="MBAlertCustomPW" style="display: none">
+        <div class="popUpBox popUpBox2">
+           <h1 id="lproductName"></h1>
+
+	    <a href="#" class="close" onclick="btnAlertOkClicked()"><img src="images/close-icon.gif" alt="" /></a><br style="clear:both" />
+
+            <div class="pBoxCont" >
+                <label id="lAlertError" class="lable12"></label>
+                <br style="clear:both" />
+                <div class="buttonRow1">
+                    <span class="btnWrp"><input id="btnTriggerOk" type="button"  value="OK" onclick="btnAlertOkClicked()" /></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div align='right'><span class="btnWrp"><input type='button' id='btUpdate' value='Save' onclick='btnEnableSave()' /></span>
+    </div>

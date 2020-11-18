@@ -1,0 +1,106 @@
+<a href='#' class='help' onclick="getHelp('SoftwareUpgrade')">&nbsp;</a>
+
+<div class="formBox">
+      <label id="title" class="title"></label>
+    <label id='lSoftwareInfo' ></label>
+
+    <table cellpadding="0" cellspacing="0" width="100%" border="0">
+        <tr>
+            <td width="60%">
+                <label id='lCurrentSoftVersion'></label>
+                <span id='lCurrentSoftVersionValue'></span>
+
+            </td>
+            <td width="40%">
+                <label id='lCurrentSoftwareDate'></label>
+                <span id='lCurrentSoftwareDateValue'></span>
+
+            </td>
+        </tr>
+    </table>
+</div>
+<form enctype="multipart/form-data" id="uploadFileForm" method="post" name="SoftFileUpload">
+    <div class="formBox">
+        <label id='lSoftwareInfo'></label>
+        <label id='lSoftwareInfoText' class="subttl"></label>
+        <label id='lSoftwareWarningText' class="title"></label>
+        <div class='file-box'>
+             <input type='file' id='softVersionUpdateFile' name='fupgrade.bin'class='file'onchange="getfileName()" />
+            <input type='text' name='textfield' id='textfield' class='txt' />  
+            <input type='button' class='btnWrn' value='Browse' id='btGetSoftVersion'/>   
+        </div>
+        <br class="clear" />
+        <div align='right'>
+            <span class="btnWrp ">
+                <input type="submit" id="btnSoftSubmit" style="display: none">
+                <input type='button' id='btUpgrade' value='Upgrade' onclick='upgradeRouter()'  /></span>
+        </div>
+    </div>
+</form>
+
+<div id="divUpgradeFromSDCard" style="display:none;">
+        <label id='lUpgradeInfoText' class="subttl"></label>
+        <label id='lUpgradeWarningText' class="title"></label>
+        <div>
+            <select id="SelUpgradeList"></select>
+            <input type='button' value='Browse' id='btnGetSWList' onclick = 'btGetSWList()' style="display:noline;"/>
+        </div>
+        <br class="clear" />
+        <div align='right'>
+            <span class="btnWrp ">
+                <input type='button' id='btSWUpgrade' value='Upgrade' onclick='SubmitUpgrade()'  /></span>
+        </div>
+</div>
+
+
+<div class="popUpBox" id="upgradeModalBox" style="display: none">
+    <h1 id="h1RouterUpgrade"></h1>
+    <a  class="close">&nbsp;</a><br style="clear:both" />
+    <div align="center">
+        <label id="lUploading"></label>
+        <br>
+        <img src="images/PleaseWait.png" alt="" class="loading" />
+    </div>
+</div>
+<div class="popUpBox" id="upgradeModalBox1" style="display: none">
+    <h1 id="h1RouterUpgrade1"> </h1>
+    <a  class="close">&nbsp;</a><br style="clear:both" />
+    <div align="center">
+
+        <label id="lUpgrade"> </label>
+        <br>
+        <!--div class="bufferBox1">
+            <div id="statusDiv" class="bufferBox" style="width:0%;"> </div>
+        </div-->
+        <div class="progressbar"> 
+        <div id="UpgradeProgressText" class="progressText">0%</div> 
+        <div id="UpgradeProgressPercent" class="bar" style="width: 0%;"></div> 
+        </div>
+        <br /> <br />
+        <label id="lWarning"> </label>
+        <label id="lWarningLine1">  </label>
+        <label id="lWarningLine2"></label>
+    </div>
+</div>
+<div>
+    <br style="clear:both" />
+</div>
+
+<div class="popUpBox" id="upgradeModalBox2" style="display: none">
+    <h1 id="h1RouterUpgrade2">  </h1>
+    <div align="center">
+        <label id="lReboot"> </label>
+    </div>
+</div>
+
+<div class="popUpBox" id="upgradeModalBox3" style="display: none">
+    <h1 id="h1RouterUpgrade3">  </h1>
+    <div align="center">
+        <label id="lUpgradeError">  </label>
+
+        <div class="butCont1" align="center">
+            <span class="btnWrp"> <button  onclick="hm()" value="OK" id="btnModalOk">OK</button></span>
+        </div>
+    </div>
+</div>
+
